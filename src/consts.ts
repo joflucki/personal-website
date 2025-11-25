@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = 'Jonas Flückiger';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
+export const DEFAULT_LOCALE = "en-us"
