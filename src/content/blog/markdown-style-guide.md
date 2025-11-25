@@ -112,6 +112,20 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 ```
 ````
 
+
+```python
+from time import time
+
+def main():
+  start = time()
+  print("Recording time")
+  end = time()
+  print(f"Time taken: {end - start}s")
+
+if __name__ == "__main__":
+  main()
+```
+
 ### Output
 
 ```html
