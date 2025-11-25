@@ -5,15 +5,13 @@
  */
 
 :root {
+	--white: #fff;
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
+	--black: #050505;
+	--gray-light: #7c7c7c;
+	--gray-dark: #1e1e1e;
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
 }
 
 @font-face {
@@ -52,11 +50,11 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	background: var(--black);
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--white);
 	font-size: 20px;
 	line-height: 1.7;
 }
@@ -65,7 +63,7 @@ main {
 	width: 720px;
 	max-width: calc(100% - 2em);
 	margin: auto;
-	padding: 3em 1em;
+	padding: 5em 1em;
 }
 
 h1,
@@ -76,7 +74,7 @@ h5,
 h6 {
 	font-family: "Clash Display", sans-serif;
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: var(--white);
 	line-height: 1.2;
 	font-weight: 500;
 }
@@ -143,7 +141,7 @@ img {
 
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	background-color: var(--white);
 	border-radius: 2px;
 }
 

@@ -1,12 +1,12 @@
-export const languages = {
+export const LANGUAGES = {
   "en-us": "English",
   "fr-ch": "Français",
   "de-ch": "Deutsch",
 };
 
-export const defaultLang = "en-us";
+export const DEFAULT_LANG = "en-us";
 
-export const ui = {
+export const UI = {
   "en-us": {
     "nav.home": "Home",
     "nav.posts": "Posts",
