@@ -2,25 +2,47 @@
 import { DEFAULT_LOCALE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+let currentLocale = Astro.currentLocale ?? DEFAULT_LOCALE;
 ---
 
 <header>
 	<nav>
 		<h2><a href="/">JF</a></h2>
 		<div class="internal-links">
-			<HeaderLink href={getRelativeLocaleUrl(
-					Astro.currentLocale ?? DEFAULT_LOCALE,
-					"",
-				)}>Home</HeaderLink>
-			<HeaderLink href={getRelativeLocaleUrl(
-					Astro.currentLocale ?? DEFAULT_LOCALE,
-					"blog",
-				)}>Blog</HeaderLink>
 			<HeaderLink
 				href={getRelativeLocaleUrl(
 					Astro.currentLocale ?? DEFAULT_LOCALE,
-					"about",
-				)}>About</HeaderLink
+					"",
+				)}>{t("nav.home")}</HeaderLink
+			>
+			<HeaderLink
+				href={getRelativeLocaleUrl(
+					Astro.currentLocale ?? DEFAULT_LOCALE,
+					"posts",
+				)}>{t("nav.posts")}</HeaderLink
+			>
+			<HeaderLink
+				href={getRelativeLocaleUrl(
+					Astro.currentLocale ?? DEFAULT_LOCALE,
+					"projects",
+				)}>{t("nav.projects")}</HeaderLink
+			>
+			<HeaderLink
+				href={getRelativeLocaleUrl(
+					Astro.currentLocale ?? DEFAULT_LOCALE,
+					"education",
+				)}>{t("nav.education")}</HeaderLink
+			>
+			<HeaderLink
+				href={getRelativeLocaleUrl(
+					Astro.currentLocale ?? DEFAULT_LOCALE,
+					"volunteering",
+				)}>{t("nav.volunteering")}</HeaderLink
 			>
 		</div>
 		<div class="social-links">
