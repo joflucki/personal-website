@@ -1,7 +1,7 @@
 export const LANGUAGES = {
-  "en-us": "English",
-  "fr-ch": "Français",
-  "de-ch": "Deutsch",
+  "en-us": "EN",
+  "fr-ch": "FR",
+  "de-ch": "DE",
 };
 
 export const DEFAULT_LANG = "en-us";

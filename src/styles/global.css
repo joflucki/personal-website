@@ -6,8 +6,8 @@
 
 :root {
 	--white: #fff;
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--accent: #007BEE;
+	--accent-dark: #003F7A;
 	--black: #050505;
 	--gray-light: #7c7c7c;
 	--gray-dark: #1e1e1e;
@@ -143,6 +143,7 @@ code {
 	padding: 2px 5px;
 	background-color: var(--white);
 	border-radius: 2px;
+	color: var(--black);
 }
 
 pre {

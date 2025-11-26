@@ -1,0 +1,92 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLocaleFromUrl } from "../i18n/utils";
+import ChevronDown from "../assets/chevron_down.svg";
+import { LANGUAGES } from "../i18n/ui";
+
+const currentLocale = getLocaleFromUrl(Astro.url);
+const pathAfterLocale = Astro.url.pathname.split("/").slice(2).join("/");
+const availableLocales = Object.keys(LANGUAGES).filter((val) => val != currentLocale) as Array<
+    keyof typeof LANGUAGES
+>;
+---
+
+<div id="language-picker" class="">
+    <div class="current">{LANGUAGES[currentLocale]} <ChevronDown /></div>
+    <div class="language-dropdown">
+        {
+            availableLocales.map((availableLocale) => (
+                <a
+                    href={getRelativeLocaleUrl(
+                        availableLocale,
+                        pathAfterLocale,
+                    )}
+                >
+                    {LANGUAGES[availableLocale]}
+                </a>
+            ))
+        }
+    </div>
+</div>
+<script>
+    let opened = false;
+    const button = document.querySelector("div#language-picker");
+    button?.addEventListener("click", (event) => {
+        opened = !opened;
+        opened
+            ? button.classList.add("opened")
+            : button.classList.remove("opened");
+    });
+</script>
+<style>
+    div#language-picker {
+        margin-top: 4px;
+        transform: translate(0px, -2.5px);
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    div.current {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    div.current svg {
+        transition: transform 100ms ease-in-out;
+        margin-top: 1px;
+    }
+    .opened div.current svg {
+        transform: rotate(180deg);
+    }
+    ul {
+        padding: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    li {
+        list-style: none;
+    }
+    .language-dropdown {
+        padding: 10px 15px;
+        display: none;
+        position: absolute;
+        top: 2em;
+
+        background: rgba(06, 06, 06, 0.75);
+        border: 1px solid var(--gray-dark);
+        backdrop-filter: blur(10px);
+        border-radius: 4px;
+    }
+    .opened .language-dropdown {
+        display: inline;
+    }
+    a {
+        text-decoration: none;
+        color: var(--white);
+    }
+</style>
