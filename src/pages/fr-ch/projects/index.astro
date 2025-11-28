@@ -5,7 +5,7 @@ import BaseHead from "../../../components/BaseHead.astro";
 import Footer from "../../../components/Footer.astro";
 import FormattedDate from "../../../components/FormattedDate.astro";
 import Header from "../../../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import { SITE_TITLE } from "../../../consts";
 
 const projects = (
 	await getCollection(
@@ -18,7 +18,7 @@ const projects = (
 <!doctype html>
 <html lang="fr-CH">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} />
 		<style>
 			main {
 				width: 960px;

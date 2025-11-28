@@ -16,6 +16,7 @@ export const UI = {
     "nav.en-us-button-label": "Switch to English",
     "nav.de-ch-button-label": "Switch to German",
     "nav.fr-ch-button-label": "Switch to French",
+    "global.description" : "A Security Engineer sharing projects, writeups, and experience. Explore my work, skills, and career journey",
   },
   "fr-ch": {
     "nav.home": "Accueil",
@@ -26,6 +27,7 @@ export const UI = {
     "nav.en-us-button-label": "Passer à l'anglais",
     "nav.de-ch-button-label": "Passer à l'allemand",
     "nav.fr-ch-button-label": "Passer au français",
+    "global.description" : "Un Ingénieur en Cybersécurité partageant ses projets, rapports, et son expérience. Explorez mon travail, mes compétences, et ma carrière",
   },
   "de-ch": {
     "nav.home": "Startseite",
@@ -36,6 +38,7 @@ export const UI = {
     "nav.en-us-button-label": "Wechseln zu English",
     "nav.de-ch-button-label": "Wechseln zu Deutsch",
     "nav.fr-ch-button-label": "Wechseln zu Französich",
+    "global.description" : "Ein Cybersecurity-Ingenieur, der Projekte, Berichte und Erfahrungen teilt. Entdecken Sie meine Arbeit, meine Fähigkeiten, und meinen beruflichen Werdegang",
 
   }
 } as const;

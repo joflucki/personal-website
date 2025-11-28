@@ -1,20 +1,28 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
-import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/open-graph-image.png';
-import { SITE_TITLE } from '../consts';
+import "../styles/global.css";
+import type { ImageMetadata } from "astro";
+import FallbackImage from "../assets/open-graph-image.png";
+import { SITE_TITLE } from "../consts";
+import { getLocaleFromUrl, useTranslations } from "../i18n/utils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
 
 interface Props {
 	title: string;
-	description: string;
+	description?: string;
 	image?: ImageMetadata;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const {
+	title,
+	description = t("global.description"),
+	image = FallbackImage,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -26,14 +34,32 @@ const { title, description, image = FallbackImage } = Astro.props;
 	rel="alternate"
 	type="application/rss+xml"
 	title={SITE_TITLE}
-	href={new URL('rss.xml', Astro.site)}
+	href={new URL("rss.xml", Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<link rel="preload" href="/fonts/ClashDisplay-Variable.woff2" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/Satoshi-VariableItalic.woff2" as="font" type="font/woff" crossorigin />
+<link
+	rel="preload"
+	href="/fonts/ClashDisplay-Variable.woff2"
+	as="font"
+	type="font/woff"
+	crossorigin
+/>
+<link
+	rel="preload"
+	href="/fonts/Satoshi-Variable.woff2"
+	as="font"
+	type="font/woff"
+	crossorigin
+/>
+<link
+	rel="preload"
+	href="/fonts/Satoshi-VariableItalic.woff2"
+	as="font"
+	type="font/woff"
+	crossorigin
+/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
