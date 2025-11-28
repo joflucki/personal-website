@@ -44,8 +44,10 @@
 	font-style: normal;
 }
 
-html{
+html {
 	background-image: url("../assets/background.webp");
+	background-color: #000000;
+	background-repeat: no-repeat;
 }
 
 body {

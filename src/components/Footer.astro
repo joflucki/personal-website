@@ -1,9 +1,40 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLocaleFromUrl, useTranslations } from "../i18n/utils";
+
 const today = new Date();
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Jonas Flückiger. All rights reserved.
+	<div class="flex-container">
+		<h2>JF</h2>
+		<div>
+			&copy; {today.getFullYear()} Jonas Flückiger. {t("footer.rights")}
+		</div>
+	</div>
+	<div class="flex-container">
+		<a href={getRelativeLocaleUrl(locale, "")}>{t("nav.home")}</a>
+		<a href={getRelativeLocaleUrl(locale, "posts")}>{t("nav.posts")}</a>
+		<a href={getRelativeLocaleUrl(locale, "projects")}>
+			{t("nav.projects")}
+		</a>
+		<a href={getRelativeLocaleUrl(locale, "education")}>
+			{t("nav.education")}
+		</a>
+		<a href={getRelativeLocaleUrl(locale, "volunteering")}>
+			{t("nav.volunteering")}
+		</a>
+		<hr />
+		<a href="mailto:contact@jonas-flueckiger.ch" target="_blank">Email</a>
+		<a href="https://github.com/joflucki" target="_blank">Github</a>
+		<a href="https://linkedin.com/in/jonas-flückiger" target="_blank">
+			LinkedIn
+		</a>
+	</div>
+
+	<!-- &copy; {today.getFullYear()} Jonas Flückiger. All rights reserved.
 	<div class="social-links">
 		<a href="mailto:contact@jonas-flueckiger.ch" target="_blank">
 			<span class="sr-only">Contact Jonas Flückiger by email</span>
@@ -40,26 +71,33 @@ const today = new Date();
 					fill="#050505"></path></svg
 			>
 		</a>
-	</div>
+	</div> -->
 </footer>
 <style>
 	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
-	}
-	.social-links {
+		padding: 3em;
+		background: #020202;
+		border-top: 1px solid var(--gray-dark);
 		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
+		justify-content: space-between;
 	}
-	.social-links a {
+	.flex-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.flex-container:nth-child(1) {
+		justify-content: space-between;
+	}
+	.flex-container:nth-child(2) {
+		margin-right: 5em;
+	}
+	footer a {
 		text-decoration: none;
-		color: rgb(var(--gray));
+		color: var(--white);
 	}
-	.social-links a:hover {
-		color: rgb(var(--gray-dark));
+	footer hr {
+		width: 100%;
+		border: 1px solid var(--gray-dark);
 	}
 </style>
