@@ -5,18 +5,23 @@ import { LANGUAGES } from "../../../i18n/ui";
 
 export async function getStaticPaths() {
 	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
-	const projects = await getCollection("projects");
-	return availableLocales
-		.map((availableLocale) => {
-			return projects.map((project) => ({
-				params: {
-					locale: availableLocale,
-					slug: project.id.split("/").at(-1),
-				},
-				props: project,
-			}));
-		})
-		.flat();
+	return (
+		await Promise.all(
+			availableLocales.map(async (availableLocale) => {
+				const projects = await getCollection(
+					"projects",
+					(project) => project.data.locale === availableLocale,
+				);
+				return projects.map((project) => ({
+					params: {
+						locale: availableLocale,
+						slug: project.id.split("/").at(-1),
+					},
+					props: project,
+				}));
+			}),
+		)
+	).flat();
 }
 type Props = CollectionEntry<"projects">;
 
