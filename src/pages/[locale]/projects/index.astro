@@ -7,6 +7,7 @@ import FormattedDate from "../../../components/FormattedDate.astro";
 import Header from "../../../components/Header.astro";
 import { SITE_TITLE } from "../../../consts";
 import { LANGUAGES } from "../../../i18n/ui";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 export async function getStaticPaths() {
 	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
@@ -104,7 +105,10 @@ const projects = (
 						projects.map((post) => (
 							<li>
 								<a
-									href={`/projects/${post.id.split("/").at(-1)}/`}
+									href={getRelativeLocaleUrl(
+										locale,
+										`posts/${post.id.split("/").at(-1)}`,
+									)}
 								>
 									{post.data.heroImage && (
 										<Image
