@@ -24,7 +24,7 @@ jobs:
 
       # Install Astro
       - name: Install Astro
-        run: deno install -A -f npm:astro
+        run: deno install --allow-scripts
 
 
       # Build website
