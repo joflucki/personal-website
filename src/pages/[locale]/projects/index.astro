@@ -6,17 +6,23 @@ import Footer from "../../../components/Footer.astro";
 import FormattedDate from "../../../components/FormattedDate.astro";
 import Header from "../../../components/Header.astro";
 import { SITE_TITLE } from "../../../consts";
+import { LANGUAGES } from "../../../i18n/ui";
 
+export async function getStaticPaths() {
+	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
+	return availableLocales.map((locale) => ({
+		params: { locale },
+	}));
+}
+
+const { locale } = Astro.params;
 const projects = (
-	await getCollection(
-		"projects",
-		(project) => project.data.locale === "fr-ch",
-	)
+	await getCollection("projects", (project) => project.data.locale === locale)
 ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
-<html lang="fr-CH">
+<html lang="en-US">
 	<head>
 		<BaseHead title={SITE_TITLE} />
 		<style>
@@ -98,7 +104,7 @@ const projects = (
 						projects.map((post) => (
 							<li>
 								<a
-									href={`/posts/${post.id.split("/").at(-1)}/`}
+									href={`/projects/${post.id.split("/").at(-1)}/`}
 								>
 									{post.data.heroImage && (
 										<Image

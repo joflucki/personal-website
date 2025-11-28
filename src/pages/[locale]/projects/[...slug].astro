@@ -1,0 +1,29 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import BlogPost from "../../../layouts/BlogPost.astro";
+import { LANGUAGES } from "../../../i18n/ui";
+
+export async function getStaticPaths() {
+	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
+	const projects = await getCollection("projects");
+	return availableLocales
+		.map((availableLocale) => {
+			return projects.map((project) => ({
+				params: {
+					locale: availableLocale,
+					slug: project.id.split("/").at(-1),
+				},
+				props: project,
+			}));
+		})
+		.flat();
+}
+type Props = CollectionEntry<"projects">;
+
+const project = Astro.props;
+const { Content } = await render(project);
+---
+
+<BlogPost {...project.data}>
+	<Content />
+</BlogPost>
