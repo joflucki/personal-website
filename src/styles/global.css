@@ -68,6 +68,7 @@ main {
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 5em 1em;
+	min-height: 480px;
 }
 
 h1,
