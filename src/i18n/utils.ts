@@ -6,8 +6,8 @@ export function getLocaleFromUrl(url: URL) {
   return DEFAULT_LANG;
 }
 
-export function useTranslations(lang: keyof typeof UI) {
+export function useTranslations(locale: keyof typeof UI) {
   return function t(key: keyof typeof UI[typeof DEFAULT_LANG]) {
-    return UI[lang][key] || UI[DEFAULT_LANG][key];
+    return UI[locale][key] || UI[DEFAULT_LANG][key];
   }
 }

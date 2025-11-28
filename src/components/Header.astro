@@ -82,6 +82,10 @@ const t = useTranslations(locale);
 		background: rgba(06, 06, 06, 0.75);
 		border-bottom: 1px solid var(--gray-dark);
 		backdrop-filter: blur(10px);
+		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+	}
+	header.hidden {
+		translate: 0px -100px;
 	}
 	h2 {
 		margin: 0;
@@ -123,3 +127,18 @@ const t = useTranslations(locale);
 		}
 	}
 </style>
+
+<script>
+	const header = document.querySelector("header");
+	let lastScroll = 0;
+	window.addEventListener("scroll", () => {
+		const currentScroll = window.pageYOffset;
+		if (currentScroll > lastScroll) {
+			header?.classList.add("hidden");
+		} else {
+			// Scrolling up
+			header?.classList.remove("hidden");
+		}
+		lastScroll = currentScroll;
+	});
+</script>
