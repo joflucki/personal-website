@@ -1,0 +1,30 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import BlogPost from "../../../layouts/BlogPost.astro";
+import { getLocaleFromUrl } from "../../../i18n/utils";
+import { LANGUAGES } from "../../../i18n/ui";
+
+export async function getStaticPaths() {
+	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
+	const projects = await getCollection("posts");
+	return availableLocales
+		.map((availableLocale) => {
+			return projects.map((post) => ({
+				params: {
+					locale: availableLocale,
+					slug: post.id.split("/").at(-1),
+				},
+				props: post,
+			}));
+		})
+		.flat();
+}
+type Props = CollectionEntry<"posts">;
+
+const post = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<BlogPost {...post.data}>
+	<Content />
+</BlogPost>

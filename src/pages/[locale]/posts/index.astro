@@ -6,17 +6,24 @@ import Footer from "../../../components/Footer.astro";
 import FormattedDate from "../../../components/FormattedDate.astro";
 import Header from "../../../components/Header.astro";
 import { SITE_TITLE } from "../../../consts";
-import { getRelativeLocaleUrl, getRelativeLocaleUrlList } from "astro:i18n";
-import { getLocaleFromUrl } from "../../../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { LANGUAGES } from "../../../i18n/ui";
 
-const locale = getLocaleFromUrl(Astro.url);
+export async function getStaticPaths() {
+	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
+	return availableLocales.map((locale) => ({
+		params: { locale },
+	}));
+}
+
+const { locale } = Astro.params;
 const posts = (
-	await getCollection("posts", (post) => post.data.locale === "de-ch")
+	await getCollection("posts", (post) => post.data.locale === locale)
 ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
-<html lang="de-CH">
+<html lang="en-US">
 	<head>
 		<BaseHead title={SITE_TITLE} />
 		<style>
