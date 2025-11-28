@@ -44,15 +44,10 @@
        y="5.3290705e-15"
        rx="15"
        ry="15" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:41.9801px;font-family:'Clash Display Variable';-inkscape-font-specification:'Clash Display Variable Medium';text-align:center;letter-spacing:1.47586px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#f1efe9;stroke-width:1.85936"
-       x="35.811134"
-       y="49.853439"
-       id="text2"><tspan
-         id="tspan2"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'Clash Display Variable';-inkscape-font-specification:'Clash Display Variable Medium';text-align:center;text-anchor:middle;stroke-width:1.85936"
-         x="36.549065"
-         y="49.853439">JF</tspan></text>
+    <path
+       d="m 24.29707,47.556401 q -3.432929,0 -5.574261,-1.12165 -2.107343,-1.15564 -3.059046,-3.161014 Q 14.71206,41.234373 14.71206,38.54921 v -1.053671 h 3.874791 V 38.5832 q 0,1.835427 0.475852,3.059046 0.509841,1.189628 1.733459,1.801438 1.257608,0.577819 3.500908,0.577819 2.243301,0 3.466919,-0.577819 1.257608,-0.57782 1.767449,-1.73346 0.54383,-1.189629 0.54383,-2.957077 V 24.44361 h 3.840802 v 14.275547 q 0,2.617184 -0.951703,4.622558 -0.951703,1.971386 -3.093035,3.093036 -2.107343,1.12165 -5.574262,1.12165 z M 42.044866,47.216507 H 38.374011 V 24.44361 h 3.670855 z M 55.98052,38.073359 H 39.495661 V 34.810376 H 55.98052 Z m 0.509841,-10.332778 h -16.9947 V 24.44361 h 16.9947 z"
+       id="text2"
+       style="font-weight:500;font-size:33.9894px;font-family:'Clash Display Variable';-inkscape-font-specification:'Clash Display Variable Medium';text-align:center;letter-spacing:1.19494px;text-anchor:middle;fill:#f1efe9;stroke-width:1.50544"
+       aria-label="JF" />
   </g>
 </svg>
