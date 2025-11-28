@@ -3,12 +3,14 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLocaleFromUrl } from "../i18n/utils";
 import ChevronDown from "../assets/chevron_down.svg";
 import { LANGUAGES } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
 
 const currentLocale = getLocaleFromUrl(Astro.url);
 const pathAfterLocale = Astro.url.pathname.split("/").slice(2).join("/");
-const availableLocales = Object.keys(LANGUAGES).filter((val) => val != currentLocale) as Array<
-    keyof typeof LANGUAGES
->;
+const availableLocales = Object.keys(LANGUAGES).filter(
+    (val) => val != currentLocale,
+) as Array<keyof typeof LANGUAGES>;
+const t = useTranslations(currentLocale);
 ---
 
 <div id="language-picker" class="">
@@ -17,6 +19,7 @@ const availableLocales = Object.keys(LANGUAGES).filter((val) => val != currentLo
         {
             availableLocales.map((availableLocale) => (
                 <a
+                    aria-label={t(`nav.${availableLocale}-button-label`)}
                     href={getRelativeLocaleUrl(
                         availableLocale,
                         pathAfterLocale,
@@ -73,17 +76,21 @@ const availableLocales = Object.keys(LANGUAGES).filter((val) => val != currentLo
     }
     .language-dropdown {
         padding: 10px 15px;
-        display: none;
+        visibility: hidden;
         position: absolute;
         top: 2em;
-
         background: rgba(06, 06, 06, 0.75);
         border: 1px solid var(--gray-dark);
         backdrop-filter: blur(10px);
         border-radius: 4px;
+        opacity: 0;
+        translate: 0px -10px;
+        transition: all 0.1s ease-in-out;
     }
     .opened .language-dropdown {
-        display: inline;
+        visibility: visible;
+        translate: none;
+        opacity: 1;
     }
     a {
         text-decoration: none;
