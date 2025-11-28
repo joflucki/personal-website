@@ -44,13 +44,15 @@
 	font-style: normal;
 }
 
+html{
+	background-image: url("../assets/background.png");
+}
 
 body {
 	font-family: "Satoshi", sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: var(--black);
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -165,16 +167,6 @@ blockquote {
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
-}
-
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-
-	main {
-		padding: 1em;
-	}
 }
 
 .sr-only {
