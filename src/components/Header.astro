@@ -2,6 +2,8 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLocaleFromUrl, useTranslations } from "../i18n/utils";
 import LanguagePicker from "./LanguagePicker.astro";
+import Menu from "../assets/menu.svg";
+import Close from "../assets/close.svg";
 
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
@@ -70,79 +72,187 @@ const t = useTranslations(locale);
 				>
 			</a>
 		</div>
-		<LanguagePicker />
+		<div id="language-picker-container">
+			<LanguagePicker />
+		</div>
+		<div id="burger-menu-container">
+			<Menu />
+		</div>
+		<div id="close-menu-container">
+			<Close />
+		</div>
 	</nav>
-</header>
-<style>
-	header {
-		width: 100%;
-		position: fixed;
-		margin: 0;
-		padding: 0;
-		background: rgba(06, 06, 06, 0.75);
-		border-bottom: 1px solid var(--gray-dark);
-		backdrop-filter: blur(10px);
-		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
-	}
-	header.hidden {
-		translate: 0px -100px;
-	}
-	h2 {
-		margin: 0;
-		padding: 0;
-		font-size: 1em;
-		margin-right: 2em;
-	}
+	<style>
+		header {
+			width: 100%;
+			position: fixed;
+			margin: 0;
+			padding: 0;
+			background: rgba(06, 06, 06, 0.75);
+			border-bottom: 1px solid var(--gray-dark);
+			backdrop-filter: blur(10px);
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+		}
+		header.hidden {
+			translate: 0px -100px;
+		}
+		h2 {
+			margin: 0;
+			padding: 0;
+			font-size: 1em;
+			margin-right: 2em;
+		}
 
-	h2 a {
-		text-decoration: none;
-	}
-	nav {
-		padding: 0.5em 0;
-		display: flex;
-		align-items: center;
-		justify-content: start;
-		margin: 0 3em;
-	}
-	nav a {
-		color: var(--white);
-		text-decoration: none;
-	}
-	.internal-links {
-		display: flex;
-		gap: 1em;
-		translate: 0px -1.5px;
-	}
-	.spacer {
-		flex-grow: 1;
-	}
-	.social-links {
-		margin-right: 1em;
-	}
-	.social-links,
-	.social-links a {
-		align-items: center;
-		gap: 1em;
-		display: flex;
-	}
-	@media (max-width: 720px) {
+		h2 a {
+			text-decoration: none;
+		}
+		nav {
+			padding: 0.5em 0;
+			display: flex;
+			align-items: center;
+			justify-content: start;
+			margin: 0 3em;
+		}
+		nav a {
+			color: var(--white);
+			text-decoration: none;
+		}
+		.internal-links {
+			display: flex;
+			gap: 1em;
+			translate: 0px -1.5px;
+		}
+		.spacer {
+			flex-grow: 1;
+			min-width: 1em;
+			min-height: 1em;
+		}
 		.social-links {
-			display: none;
+			margin-right: 1em;
 		}
-	}
-</style>
+		.social-links,
+		.social-links a {
+			align-items: center;
+			gap: 1em;
+			display: flex;
+		}
+		@media (max-width: 720px) {
+			h2 {
+				position: fixed;
+				top: 0.4em;
+				left: 1em;
+			}
+			header {
+				height: 2em;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			header.opened {
+				height: 100vh;
+			}
+			header.hidden.opened {
+				translate: none;
+			}
+			.social-links {
+				visibility: hidden;
+				align-items: center;
+				justify-content: center;
+				margin-right: 0;
+			}
+			.opened .social-links {
+				visibility: visible;
+			}
+			.opened .internal-links {
+				visibility: visible;
+			}
+			.internal-links {
+				visibility: hidden;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			#language-picker-container {
+				display: none;
+			}
+			#burger-menu-container,
+			#close-menu-container {
+				visibility: visible;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: fixed;
+				top: 0.4em;
+				right: 1em;
+				cursor: pointer;
+				transition: all 0.25s ease-in-out;
+			}
+			#burger-menu-container {
+				scale: 1;
+				rotate: 0deg;
+			}
+			#close-menu-container {
+				visibility: hidden;
+				scale: 0.1;
+				rotate: 180deg;
+			}
+			.opened #close-menu-container {
+				visibility: visible;
+				scale: 1;
+				rotate: 0deg;
+			}
+			.opened #burger-menu-container {
+				visibility: hidden;
+				scale: 0.1;
+				rotate: -180deg;
+			}
+			nav {
+				margin: 0;
+				padding: 0;
+				height: 50%;
+			}
+			.opened nav {
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-around;
+			}
+		}
+	</style>
 
-<script>
-	const header = document.querySelector("header");
-	let lastScroll = 0;
-	window.addEventListener("scroll", () => {
-		const currentScroll = window.pageYOffset;
-		if (currentScroll > lastScroll) {
-			header?.classList.add("hidden");
-		} else {
-			// Scrolling up
-			header?.classList.remove("hidden");
-		}
-		lastScroll = currentScroll;
-	});
-</script>
+	<script>
+		const header = document.querySelector("header");
+		let lastScroll = 0;
+		window.addEventListener("scroll", () => {
+			const currentScroll = window.pageYOffset;
+			if (currentScroll > lastScroll) {
+				header?.classList.add("hidden");
+			} else {
+				// Scrolling up
+				header?.classList.remove("hidden");
+			}
+			lastScroll = currentScroll;
+		});
+	</script>
+
+	<script>
+		let headerOpened = false;
+		const burgerMenu = document.querySelector("#burger-menu-container");
+		const closeMenu = document.querySelector("#close-menu-container");
+		const header = document.querySelector("header");
+		const html = document.querySelector("html");
+		const toggleMenu = () => {
+			headerOpened = !headerOpened;
+			headerOpened
+				? header?.classList.add("opened")
+				: header?.classList.remove("opened");
+
+			headerOpened
+				? html?.classList.add("no-scroll")
+				: html?.classList.remove("no-scroll");
+		};
+		burgerMenu?.addEventListener("click", toggleMenu);
+		closeMenu?.addEventListener("click", toggleMenu);
+	</script>
+</header>
