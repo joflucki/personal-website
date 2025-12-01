@@ -8,13 +8,14 @@ import Header from "../../../components/Header.astro";
 import { SITE_TITLE } from "../../../consts";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { LANGUAGES } from "../../../i18n/ui";
+import type { GetStaticPaths } from "astro";
 
-export async function getStaticPaths() {
+export const getStaticPaths = (() => {
 	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
 	return availableLocales.map((locale) => ({
 		params: { locale },
 	}));
-}
+}) satisfies GetStaticPaths;
 
 const { locale } = Astro.params;
 const posts = (

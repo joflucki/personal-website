@@ -1,0 +1,38 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { SITE_TITLE } from "../../consts";
+import { LANGUAGES } from "../../i18n/ui";
+import { toBCP47, useTranslations } from "../../i18n/utils";
+
+const availablesLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
+
+export const getStaticPaths = (() => {
+	const availablesLocales = Object.keys(LANGUAGES) as [
+		keyof typeof LANGUAGES,
+	];
+	return availablesLocales.map((locale) => ({
+		params: { locale },
+	}));
+}) satisfies GetStaticPaths;
+
+const { locale } = Astro.params;
+const t = useTranslations(locale);
+---
+
+<!doctype html>
+<html lang={toBCP47(locale)}>
+	<head>
+		<BaseHead title={SITE_TITLE} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>{t("nav.education")}</h1>
+			<p>{t("global.under-construction")}</p>
+		</main>
+		<Footer />
+	</body>
+</html>

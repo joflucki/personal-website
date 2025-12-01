@@ -2,8 +2,9 @@
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import BlogPost from "../../../layouts/BlogPost.astro";
 import { LANGUAGES } from "../../../i18n/ui";
+import type { GetStaticPaths } from "astro";
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
 	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
 	return (
 		await Promise.all(
@@ -22,7 +23,7 @@ export async function getStaticPaths() {
 			}),
 		)
 	).flat();
-}
+}) satisfies GetStaticPaths;
 type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
