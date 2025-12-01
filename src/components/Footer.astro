@@ -52,8 +52,12 @@ const t = useTranslations(locale);
 		justify-content: space-between;
 	}
 	footer a {
-		text-decoration: none;
+		text-decoration-color: transparent;
 		color: var(--white);
+		transition: text-decoration-color 0.15s linear;
+	}
+	footer a:hover {
+		text-decoration-color: var(--white);
 	}
 	footer hr {
 		width: 100%;
