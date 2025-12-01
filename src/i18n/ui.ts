@@ -20,6 +20,8 @@ export const UI = {
     "global.description": "A Security Engineer sharing projects, writeups, and experience. Explore my work, skills, and career journey",
     "global.under-construction": "This page is under construction.",
 
+    "posts.last-updated-on": "Last updated on",
+
     "footer.rights": "All rights reserved",
   },
   "fr-ch": {
@@ -35,6 +37,8 @@ export const UI = {
     "global.description": "Un Ingénieur en Cybersécurité partageant ses projets, rapports, et son expérience. Explorez mon travail, mes compétences, et ma carrière",
     "global.under-construction": "Cette page est en cours de construction.",
 
+    "posts.last-updated-on": "Dernière mise à jour le",
+
     "footer.rights": "Tous droits réservés",
   },
   "de-ch": {
@@ -49,6 +53,8 @@ export const UI = {
 
     "global.description": "Ein Cybersecurity-Ingenieur, der Projekte, Berichte und Erfahrungen teilt. Entdecken Sie meine Arbeit, meine Fähigkeiten, und meinen beruflichen Werdegang",
     "global.under-construction": "Diese Seite befindet sich im Aufbau",
+
+    "posts.last-updated-on": "Zuletzt aktualisiert am",
 
     "footer.rights": "Alle Rechte vorbehalten",
 

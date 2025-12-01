@@ -1,9 +1,13 @@
 ---
 title: 'Erste Post'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet.'
 locale: 'de-ch'
 pubDate: 'Jul 08 2022'
-heroImage: '../../../assets/blog-placeholder-3.jpg'
+updatedDate: 'Dec 01 2025'
+tags: 
+  - CSS
+  - HTML
+  - JavaScript
 ---
 
 ## Installing NodeJS
