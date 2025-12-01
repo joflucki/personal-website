@@ -46,6 +46,7 @@
 
 html {
 	background-image: url("../assets/background.webp");
+	background-size: cover;
 	background-color: #000000;
 	background-repeat: no-repeat;
 }

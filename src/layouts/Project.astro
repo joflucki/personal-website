@@ -5,10 +5,10 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
-import { toBCP47, useTranslations } from "../i18n/utils";
+import { toBCP47 } from "../i18n/utils";
 import type { MarkdownHeading } from "astro";
 
-type Props = CollectionEntry<"posts">["data"] & {
+type Props = CollectionEntry<"projects">["data"] & {
 	headings: MarkdownHeading[];
 };
 
@@ -16,8 +16,6 @@ const { _, slug } = Astro.params;
 
 const { title, description, locale, pubDate, updatedDate, headings } =
 	Astro.props;
-
-const t = useTranslations(locale);
 ---
 
 <html lang={toBCP47(locale)}>
@@ -54,15 +52,6 @@ const t = useTranslations(locale);
 			.table-of-contents a:hover {
 				text-decoration-color: var(--white);
 			}
-
-			@media (max-width: 720px) {
-				.table-of-contents {
-					display: none;
-				}
-				main {
-					translate: none;
-				}
-			}
 		</style>
 	</head>
 
@@ -86,7 +75,7 @@ const t = useTranslations(locale);
 						{
 							updatedDate && (
 								<div class="last-updated-on">
-									{t("posts.last-updated-on")}
+									Last updated on{" "}
 									<FormattedDate date={updatedDate} />
 								</div>
 							)

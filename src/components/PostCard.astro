@@ -1,0 +1,72 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+type Props = { id: string } & CollectionEntry<"posts">["data"];
+
+const { id, title, description, locale, pubDate, updatedDate, tags } =
+    Astro.props;
+---
+
+<a href={getRelativeLocaleUrl(locale, `posts/${id.split("/").at(-1)}`)}>
+    <div class="post-card">
+        <h2 class="title">{title}</h2>
+        <div class="description">{description}</div>
+        <div class="tags">
+            {tags.map((tag) => <div class="tag">{tag}</div>)}
+        </div>
+        <div class="pub-date"><FormattedDate date={pubDate} /></div>
+    </div>
+</a>
+
+<style>
+    a {
+        text-decoration: none;
+        color: var(--white);
+        display: block;
+        height: 100%;
+    }
+    .post-card {
+        background: rgba(06, 06, 06, 0.25);
+        border: 1px solid var(--gray-dark);
+        backdrop-filter: blur(10px);
+        border-radius: 8px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        padding: 3em;
+        box-sizing: border-box;
+        text-align: left;
+        gap: 1em;
+        height: 100%;
+    }
+    .post-card:hover {
+        border-color: var(--accent);
+        scale: 101%;
+        background: rgba(06, 06, 06, 0.75);
+    }
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        translate: -0.2em 0;
+    }
+    .tag {
+        font-size: 0.8em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0.1em 0.75em;
+        border-radius: 100px;
+        border: 1px solid var(--gray-light);
+    }
+    .pub-date {
+        color: var(--gray-light);
+        font-style: italic;
+    }
+</style>

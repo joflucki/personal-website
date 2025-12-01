@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-import BlogPost from "../../../layouts/BlogPost.astro";
+import Project from "../../../layouts/Project.astro";
 import { LANGUAGES } from "../../../i18n/ui";
 
 export async function getStaticPaths() {
@@ -26,9 +26,9 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"projects">;
 
 const project = Astro.props;
-const { Content } = await render(project);
+const { Content, headings } = await render(project);
 ---
 
-<BlogPost {...project.data}>
+<Project {...project.data} headings={headings}>
 	<Content />
-</BlogPost>
+</Project>

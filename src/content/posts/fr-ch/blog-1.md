@@ -3,7 +3,11 @@ title: 'Premier post'
 description: 'Lorem ipsum dolor sit amet'
 locale: 'fr-ch'
 pubDate: 'Jul 08 2022'
-heroImage: '../../../assets/blog-placeholder-3.jpg'
+updatedDate: 'Dec 01 2025'
+tags: 
+  - css
+  - html
+  - js
 ---
 
 ## Ce post du blog est en français
