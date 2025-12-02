@@ -146,6 +146,9 @@ const t = useTranslations(locale);
 			visibility: hidden;
 		}
 		@media (max-width: 720px) {
+			.spacer {
+				display: none;
+			}
 			h2 {
 				position: fixed;
 				top: 0.4em;
@@ -173,18 +176,21 @@ const t = useTranslations(locale);
 			}
 			.opened .social-links {
 				visibility: visible;
+				order: 3;
 			}
 			.opened .internal-links {
 				visibility: visible;
+				order: 2;
 			}
 			.internal-links {
 				visibility: hidden;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
+				z-index: -1;
 			}
 			#language-picker-container {
-				display: none;
+				visibility: hidden;
 			}
 			#burger-menu-container,
 			#close-menu-container {
@@ -220,12 +226,17 @@ const t = useTranslations(locale);
 			nav {
 				margin: 0;
 				padding: 0;
-				height: 50%;
+				height: min-content;
+				gap: 2em;
 			}
 			.opened nav {
 				flex-direction: column;
 				align-items: center;
 				justify-content: space-around;
+			}
+			.opened #language-picker-container {
+				visibility: visible;
+				order: 1;
 			}
 		}
 	</style>
