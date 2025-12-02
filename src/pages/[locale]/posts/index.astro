@@ -8,6 +8,7 @@ import { LANGUAGES } from "../../../i18n/ui";
 import type { GetStaticPaths } from "astro";
 import PostCard from "../../../components/PostCard.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { toBCP47 } from "../../../i18n/utils";
 
 export const getStaticPaths = (() => {
 	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
@@ -23,7 +24,7 @@ const posts = (
 ---
 
 <!doctype html>
-<html lang="en-US">
+<html lang={toBCP47(locale)}>
 	<head>
 		<BaseHead title={SITE_TITLE} />
 		<style>

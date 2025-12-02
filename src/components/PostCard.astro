@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import Tag from "./Tag.astro";
 
 type Props = { id: string } & CollectionEntry<"posts">["data"];
 
@@ -14,7 +15,7 @@ const { id, title, description, locale, pubDate, updatedDate, tags } =
         <h2 class="title">{title}</h2>
         <div class="description">{description}</div>
         <div class="tags">
-            {tags.map((tag) => <div class="tag">{tag}</div>)}
+            {tags.map((tag) => <Tag {tag} />)}
         </div>
         <div class="pub-date"><FormattedDate date={pubDate} /></div>
     </div>
@@ -54,16 +55,6 @@ const { id, title, description, locale, pubDate, updatedDate, tags } =
         flex-wrap: wrap;
         gap: 0.5em;
         translate: -0.2em 0;
-    }
-    .tag {
-        font-size: 0.8em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        padding: 0.1em 0.75em;
-        border-radius: 100px;
-        border: 1px solid var(--gray-light);
     }
     .pub-date {
         color: var(--gray-light);
