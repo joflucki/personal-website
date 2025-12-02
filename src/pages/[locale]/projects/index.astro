@@ -8,6 +8,8 @@ import Header from "../../../components/Header.astro";
 import { SITE_TITLE } from "../../../consts";
 import { LANGUAGES } from "../../../i18n/ui";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { toBCP47 } from "../../../i18n/utils";
+import ProjectCard from "../../../components/ProjectCard.astro";
 
 export async function getStaticPaths() {
 	const availableLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
@@ -17,13 +19,14 @@ export async function getStaticPaths() {
 }
 
 const { locale } = Astro.params;
-const projects = (
-	await getCollection("projects", (project) => project.data.locale === locale)
-).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const projects = await getCollection(
+	"projects",
+	(project) => project.data.locale === locale,
+);
 ---
 
 <!doctype html>
-<html lang="en-US">
+<html lang={toBCP47(locale)}>
 	<head>
 		<BaseHead title={SITE_TITLE} />
 		<style>
@@ -102,29 +105,12 @@ const projects = (
 			<section>
 				<ul>
 					{
-						projects.map((post) => (
+						projects.map((project) => (
 							<li>
-								<a
-									href={getRelativeLocaleUrl(
-										locale,
-										`projects/${post.id.split("/").at(-1)}`,
-									)}
-								>
-									{post.data.heroImage && (
-										<Image
-											width={720}
-											height={360}
-											src={post.data.heroImage}
-											alt=""
-										/>
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate
-											date={post.data.pubDate}
-										/>
-									</p>
-								</a>
+								<ProjectCard
+									id={project.id}
+									{...project.data}
+								/>
 							</li>
 						))
 					}

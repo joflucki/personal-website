@@ -1,23 +1,51 @@
 ---
-title: 'First post'
-description: 'Lorem ipsum ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet dolor sit amet'
+title: 'Localized blog using Astro'
+description: 'How to build a localized (internalionalized) blog using Astro. This simple method will allow to translate blog content to the language of your choice.'
 locale: 'en-us'
 pubDate: 'Jul 08 2022'
 updatedDate: 'Dec 01 2025'
 tags: 
-  - css
-  - html
-  - js
+  - CSS
+  - HTML
+  - JS
 ---
 
-## This blog post is in english
+## Localization
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse est orci, luctus eget dui et, accumsan eleifend velit. Etiam euismod odio quis orci convallis, ac dignissim felis interdum. Quisque vehicula eget dui ut elementum. Sed porttitor nunc vitae velit sodales, ut faucibus lectus dignissim. In cursus lacinia pulvinar. Pellentesque dictum neque sit amet eleifend bibendum. Integer pretium rhoncus est, ultrices aliquam lorem iaculis in. Proin nisi arcu, dapibus vel iaculis vel, maximus fermentum risus. Vivamus fringilla nibh eget nunc pellentesque molestie ut nec eros 
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+![Alt](../../../assets/91982622-bw.png)
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+```python
+def func():
+  pass
+
+class MyClass:
+  __stop: int
+```
+
+```rust
+fn dont_stop_me_now() -> str {
+
+}
+```
+
+
+## Routing
+
+Mauris vel nisl vel arcu tempor aliquet in a orci. Integer vestibulum quis arcu semper convallis. Morbi sed nunc nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur lacus erat, lobortis eget elit et, dictum consectetur libero. Vestibulum dui nisl, vehicula vel tortor et, pharetra scelerisque lectus. Donec ultrices euismod libero, ut suscipit elit ultricies quis. Nunc dolor diam, fringilla non gravida et, congue eu nulla. Maecenas id ex ac dui interdum fermentum et sed purus.
+
+
+
+## UI
+
+Ut at ullamcorper felis. Cras metus quam, consectetur sed nisl vitae, sagittis imperdiet est. Integer vel cursus mi. Aliquam mauris massa, vestibulum at laoreet quis, iaculis id risus. Suspendisse imperdiet feugiat nisi in vestibulum. Vestibulum blandit placerat magna, at congue justo convallis eu. Sed bibendum, libero vitae sagittis condimentum, purus eros eleifend turpis, vel eleifend nibh diam at metus. Sed eu ante imperdiet, blandit massa et, consequat dolor. Nunc finibus quam ultricies porttitor eleifend. Integer dapibus pharetra lectus ac volutpat. Nulla vulputate turpis a congue egestas. Nullam consectetur tellus quis dui interdum malesuada. Nunc nec sollicitudin libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque nibh ipsum, commodo dignissim sagittis et, consectetur id tortor.
+
+## Enjoy!
+
+
+Cras tincidunt aliquam eros a feugiat. Vivamus lacus arcu, scelerisque a facilisis iaculis, lobortis sed metus. Donec mollis ante vel ante semper, eget tempor sapien blandit. Integer ac libero quis ex eleifend finibus. Pellentesque faucibus, nulla sit amet commodo eleifend, augue sapien congue mauris, eget porta mauris urna sed ante. Aliquam pretium pharetra dui vitae sodales. Morbi gravida ultricies risus id pulvinar. Maecenas sed quam metus. Nunc porta mi enim, non venenatis tellus tincidunt vel. Pellentesque lobortis turpis id massa luctus, sed viverra nulla mattis. Vivamus et varius ligula, a vehicula dolor. Vestibulum at erat lacus. Proin risus odio, condimentum sed posuere quis, aliquet at metus. Nunc a libero eu erat pretium viverra. Donec mattis nunc eu urna ultrices, a congue massa consequat. Donec a orci at sem iaculis mollis ullamcorper ac eros.
+
+Nunc malesuada dapibus nulla, non consequat libero gravida quis. Sed auctor lacinia ante nec molestie. Phasellus et nisi magna. Donec gravida sem tellus, in blandit tellus facilisis vel. Mauris tincidunt ac arcu sit amet viverra. Nunc hendrerit ornare convallis. Morbi lectus erat, posuere sit amet risus et, pretium volutpat purus. Fusce aliquet tortor id porttitor volutpat. Donec malesuada gravida ante, tristique rutrum quam mollis ut. Proin semper nibh nec dignissim dignissim. Ut fermentum ultricies neque, non tincidunt elit vestibulum ac. Praesent metus mi, dapibus vitae augue eget, auctor hendrerit lacus. Aliquam eros ipsum, dignissim sit amet accumsan eget, consequat a diam. Sed quis orci quis lectus lacinia pharetra eget vel mauris. 

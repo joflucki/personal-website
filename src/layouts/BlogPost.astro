@@ -7,6 +7,8 @@ import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 import { toBCP47, useTranslations } from "../i18n/utils";
 import type { MarkdownHeading } from "astro";
+import Tag from "../components/Tag.astro";
+import profilePicture from "../assets/91982622-bw.png";
 
 type Props = CollectionEntry<"posts">["data"] & {
 	headings: MarkdownHeading[];
@@ -14,7 +16,7 @@ type Props = CollectionEntry<"posts">["data"] & {
 
 const { _, slug } = Astro.params;
 
-const { title, description, locale, pubDate, updatedDate, headings } =
+const { title, description, locale, pubDate, updatedDate, tags, headings } =
 	Astro.props;
 
 const t = useTranslations(locale);
@@ -25,12 +27,12 @@ const t = useTranslations(locale);
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
+				flex-direction: column;
 				display: flex;
 				margin: auto;
 				padding: 5em 0;
 				width: 70%;
-				gap: 3em;
-				translate: -100px 0;
+				gap: 1em;
 			}
 			.table-of-contents {
 				height: min-content;
@@ -42,7 +44,7 @@ const t = useTranslations(locale);
 				padding-right: 1em;
 				position: sticky;
 				top: 5em;
-				min-width: 25%;
+				min-width: 20%;
 				line-height: 1.2;
 				gap: 0.75em;
 			}
@@ -54,7 +56,34 @@ const t = useTranslations(locale);
 			.table-of-contents a:hover {
 				text-decoration-color: var(--white);
 			}
-
+			.content {
+				display: flex;
+				gap: 1em;
+			}
+			.prose {
+				width: 100%;
+			}
+			.tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+				translate: -5px 0;
+			}
+			hr {
+				width: 100%;
+				border: 1px solid var(--gray-dark);
+			}
+			.author {
+				display: flex;
+				align-items: center;
+				gap: 0.5em;
+			}
+			.author img {
+				border-radius: 20px;
+			}
+			.date {
+				margin-top: 1em;
+			}
 			@media (max-width: 720px) {
 				.table-of-contents {
 					display: none;
@@ -70,29 +99,45 @@ const t = useTranslations(locale);
 	<body>
 		<Header />
 		<main>
-			<div class="table-of-contents">
-				{
-					headings
-						.filter((heading) => heading.depth < 3)
-						.map((heading) => (
-							<a href={`#${heading.slug}`}>{heading.text}</a>
-						))
-				}
-			</div>
-			<div class="content">
-				<div class="title">
-					<h1>{title}</h1>
-					<div class="date">
+			<div class="title">
+				<h1>{title}</h1>
+				<div class="author">
+					<Image
+						src={profilePicture}
+						alt="A pixelated portrait of the author"
+						height="24"
+						width="24"
+					/>
+					<div>{t("global.written-by")} Jonas Flückiger</div>
+				</div>
+				<div class="date">
+					<div>
+						{t("global.published-on")}
 						<FormattedDate date={pubDate} />
-						{
-							updatedDate && (
-								<div class="last-updated-on">
-									{t("posts.last-updated-on")}
-									<FormattedDate date={updatedDate} />
-								</div>
-							)
-						}
 					</div>
+					{
+						updatedDate && (
+							<div class="last-updated-on">
+								{t("global.last-updated-on")}
+								<FormattedDate date={updatedDate} />
+							</div>
+						)
+					}
+				</div>
+			</div>
+			<div class="tags">
+				{tags.map((tag) => <Tag {tag} />)}
+			</div>
+			<hr />
+			<div class="content">
+				<div class="table-of-contents">
+					{
+						headings
+							.filter((heading) => heading.depth < 3)
+							.map((heading) => (
+								<a href={`#${heading.slug}`}>{heading.text}</a>
+							))
+					}
 				</div>
 				<div class="prose">
 					<slot />

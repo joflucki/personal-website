@@ -19,8 +19,9 @@ export const UI = {
 
     "global.description": "A Security Engineer sharing projects, writeups, and experience. Explore my work, skills, and career journey",
     "global.under-construction": "This page is under construction.",
-
-    "posts.last-updated-on": "Last updated on",
+    "global.last-updated-on": "Last updated on",
+    "global.published-on": "Published on",
+    "global.written-by": "Written by",
 
     "footer.rights": "All rights reserved",
   },
@@ -36,8 +37,10 @@ export const UI = {
 
     "global.description": "Un Ingénieur en Cybersécurité partageant ses projets, rapports, et son expérience. Explorez mon travail, mes compétences, et ma carrière",
     "global.under-construction": "Cette page est en cours de construction.",
-
-    "posts.last-updated-on": "Dernière mise à jour le",
+    "global.last-updated-on": "Dernière mise à jour le",
+    "global.published-on": "Publié le",
+    "global.written-by": "Rédigé par",
+    
 
     "footer.rights": "Tous droits réservés",
   },
@@ -53,8 +56,9 @@ export const UI = {
 
     "global.description": "Ein Cybersecurity-Ingenieur, der Projekte, Berichte und Erfahrungen teilt. Entdecken Sie meine Arbeit, meine Fähigkeiten, und meinen beruflichen Werdegang",
     "global.under-construction": "Diese Seite befindet sich im Aufbau",
-
-    "posts.last-updated-on": "Zuletzt aktualisiert am",
+    "global.last-updated-on": "Zuletzt aktualisiert am",
+    "global.published-on": "Veröffentlicht am",
+    "global.written-by": "Verfasst von",
 
     "footer.rights": "Alle Rechte vorbehalten",
 

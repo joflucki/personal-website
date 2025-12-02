@@ -7,6 +7,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 import { toBCP47 } from "../i18n/utils";
 import type { MarkdownHeading } from "astro";
+import Tag from "../components/Tag.astro";
 
 type Props = CollectionEntry<"projects">["data"] & {
 	headings: MarkdownHeading[];
@@ -14,8 +15,16 @@ type Props = CollectionEntry<"projects">["data"] & {
 
 const { _, slug } = Astro.params;
 
-const { title, description, locale, pubDate, updatedDate, headings } =
-	Astro.props;
+const {
+	title,
+	description,
+	locale,
+	heroImage,
+	pubDate,
+	tags,
+	links,
+	headings,
+} = Astro.props;
 ---
 
 <html lang={toBCP47(locale)}>
@@ -23,12 +32,25 @@ const { title, description, locale, pubDate, updatedDate, headings } =
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
+				flex-direction: column;
 				display: flex;
 				margin: auto;
 				padding: 5em 0;
 				width: 70%;
+				gap: 1em;
+			}
+			main h1 {
+				margin: 0;
+			}
+			main div:first-child img {
+				aspect-ratio: 32 / 9;
+				width: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+			main div:last-child {
+				display: flex;
 				gap: 3em;
-				translate: -100px 0;
 			}
 			.table-of-contents {
 				height: min-content;
@@ -40,7 +62,7 @@ const { title, description, locale, pubDate, updatedDate, headings } =
 				padding-right: 1em;
 				position: sticky;
 				top: 5em;
-				min-width: 25%;
+				min-width: 20%;
 				line-height: 1.2;
 				gap: 0.75em;
 			}
@@ -52,38 +74,66 @@ const { title, description, locale, pubDate, updatedDate, headings } =
 			.table-of-contents a:hover {
 				text-decoration-color: var(--white);
 			}
+			.content {
+				display: flex;
+				flex-direction: column;
+			}
+			.prose {
+				display: flex;
+				flex-direction: column;
+			}
+			.tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+				translate: -5px 0;
+			}
+			hr {
+				width: 100%;
+				border: 1px solid var(--gray-dark);
+			}
+			@media (max-width: 720px) {
+				.table-of-contents {
+					display: none;
+				}
+				main {
+					translate: none;
+					width: 90%;
+				}
+			}
 		</style>
 	</head>
 
 	<body>
 		<Header />
 		<main>
-			<div class="table-of-contents">
-				{
-					headings
-						.filter((heading) => heading.depth < 3)
-						.map((heading) => (
-							<a href={`#${heading.slug}`}>{heading.text}</a>
-						))
-				}
+			<div class="hero-image-container">
+				<img src={heroImage?.src ?? ""} alt="test" />
 			</div>
-			<div class="content">
-				<div class="title">
-					<h1>{title}</h1>
-					<div class="date">
-						<FormattedDate date={pubDate} />
-						{
-							updatedDate && (
-								<div class="last-updated-on">
-									Last updated on{" "}
-									<FormattedDate date={updatedDate} />
-								</div>
-							)
-						}
-					</div>
+			<div class="title">
+				<h1>{title}</h1>
+				<div class="date">
+					<FormattedDate date={pubDate} />
 				</div>
-				<div class="prose">
-					<slot />
+			</div>
+			<div class="tags">
+				{tags.map((tag) => <Tag {tag} />)}
+			</div>
+			<hr />
+			<div>
+				<div class="table-of-contents">
+					{
+						headings
+							.filter((heading) => heading.depth < 3)
+							.map((heading) => (
+								<a href={`#${heading.slug}`}>{heading.text}</a>
+							))
+					}
+				</div>
+				<div class="content">
+					<div class="prose">
+						<slot />
+					</div>
 				</div>
 			</div>
 		</main>
