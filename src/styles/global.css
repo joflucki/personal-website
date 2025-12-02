@@ -50,7 +50,8 @@ html {
 	background-color: #000000;
 	background-repeat: no-repeat;
 }
-html.no-scroll {
+
+.no-scroll {
 	overflow: hidden;
 }
 
