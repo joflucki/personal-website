@@ -23,6 +23,15 @@ export const UI = {
     "global.published-on": "Published on",
     "global.written-by": "Written by",
 
+    "education.master-title": "Master of Science in Engineering - Computer Science",
+    "education.master-school": "University of Applied Sciences and Arts of Western Switzerland",
+    "education.master-description-1": "Specializing in cybersecurity, I mainly studied applied cryptography, reverse engineering, ethical hacking, and network security.",
+    "education.master-description-2": "My thesis focused on applying concepts of zero trust architecture in a power grid substation, and measuring the effective increase in resilience through repeated penetration testing.",
+    "education.bachelor-title": "Bachelor of Science - Computer Science",
+    "education.bachelor-school": "Arc School of Engineering",
+    "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
+    "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
+
     "footer.rights": "All rights reserved",
   },
   "fr-ch": {
@@ -40,7 +49,16 @@ export const UI = {
     "global.last-updated-on": "Dernière mise à jour le",
     "global.published-on": "Publié le",
     "global.written-by": "Rédigé par",
-    
+
+    "education.master-title": "Master of Science in Engineering - Computer Science",
+    "education.master-school": "Haute École Spécialisée de Suisse Occidentale (HES-SO)",
+    "education.master-description-1": "Specializing in cybersecurity, I mainly studied applied cryptography, reverse engineering, ethical hacking, and network security.",
+    "education.master-description-2": "My thesis focused on applying concepts of zero trust architecture in a power grid substation, and measuring the effective increase in resilience through repeated penetration testing.",
+    "education.bachelor-title": "Bachelor of Science - Informatique et Systèmes de Communication",
+    "education.bachelor-school": "Haute École Arc (HE-Arc)",
+    "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
+    "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
+
 
     "footer.rights": "Tous droits réservés",
   },
@@ -59,6 +77,15 @@ export const UI = {
     "global.last-updated-on": "Zuletzt aktualisiert am",
     "global.published-on": "Veröffentlicht am",
     "global.written-by": "Verfasst von",
+
+    "education.master-title": "Master of Science in Engineering - Computer Science",
+    "education.master-school": "University of Applied Sciences and Arts of Western Switzerland",
+    "education.master-description-1": "Specializing in cybersecurity, I mainly studied applied cryptography, reverse engineering, ethical hacking, and network security.",
+    "education.master-description-2": "My thesis focused on applying concepts of zero trust architecture in a power grid substation, and measuring the effective increase in resilience through repeated penetration testing.",
+    "education.bachelor-title": "Bachelor of Science - Computer Science",
+    "education.bachelor-school": "Arc School of Engineering",
+    "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
+    "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
 
     "footer.rights": "Alle Rechte vorbehalten",
 
