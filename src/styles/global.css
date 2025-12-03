@@ -60,7 +60,6 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: var(--white);
@@ -69,11 +68,7 @@ body {
 }
 
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 5em 1em;
-	min-height: 480px;
+	padding: 5em;
 }
 
 h1,
@@ -187,4 +182,10 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+	main {
+		padding: 3em 1em;
+	}
 }

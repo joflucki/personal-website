@@ -6,6 +6,8 @@ import Header from "../../components/Header.astro";
 import { SITE_TITLE } from "../../consts";
 import { LANGUAGES } from "../../i18n/ui";
 import { toBCP47, useTranslations } from "../../i18n/utils";
+import profilePicture from "../../assets/91982622-bw.png";
+import { Image } from "astro:assets";
 
 export const getStaticPaths = (() => {
 	const availablesLocales = Object.keys(LANGUAGES) as [
@@ -24,12 +26,87 @@ const t = useTranslations(locale);
 <html lang={toBCP47(locale)}>
 	<head>
 		<BaseHead title={SITE_TITLE} />
+		<style>
+			main {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.hero-section {
+				display: flex;
+				gap: 3em;
+				max-width: 1080px;
+				margin-top: 3em;
+				margin-bottom: 5em;
+				align-items: center;
+			}
+			.hero-section .title {
+				display: flex;
+				height: min-content;
+				flex-direction: column;
+			}
+			.hero-section .title div {
+				display: flex;
+				gap: 1em;
+				align-items: center;
+			}
+			.hero-section div h1 {
+				font-size: 64pt;
+				line-height: 1;
+				margin: 0;
+			}
+			.hero-section .title .line {
+				height: 2px;
+				flex-grow: 1;
+				min-width: 3em;
+				background-color: var(--gray-light);
+			}
+			.hero-section .profile-picture img {
+				border-radius: 16px;
+				border: 3px solid var(--gray-light);
+				image-rendering: pixelated;
+				image-rendering: crisp-edges;
+			}
+			.hero-section .title p {
+				margin: 0;
+			}
+			@media (max-width: 720px){
+				.hero-section {
+					margin: 0;
+					flex-direction: column;
+					align-items: center;
+				}
+				.hero-section .profile-picture img {
+					height: 32em;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Jonas Flückiger</h1>
-			<p>{t("global.under-construction")}</p>
+			<section class="hero-section">
+				<div class="title">
+					<div><h1>Jonas</h1><div class="line"></div></div>
+					<div><div class="line"></div><h1>Flückiger</h1></div>
+					<div>
+						Security Engineer with strong expertise in zero trust
+						architecture, OT security, applied cryptography, and
+						reverse engineering.
+					</div>
+					<div>
+						Currently focusing on securing power grid infrastructure
+						against increasing threats.
+					</div>
+				</div>
+				<div class="profile-picture">
+					<Image
+						src={profilePicture}
+						alt="A pixelated portrait"
+						style="height: 18em; width: auto;"
+					/>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>

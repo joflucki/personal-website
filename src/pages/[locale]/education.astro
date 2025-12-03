@@ -26,12 +26,37 @@ const t = useTranslations(locale);
 <html lang={toBCP47(locale)}>
 	<head>
 		<BaseHead title={SITE_TITLE} />
+		<style>
+			main {
+				max-width: 960px;
+				margin: auto;
+			}
+			section {
+				margin-bottom: 3em;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
 			<h1>{t("nav.education")}</h1>
-			<p>{t("global.under-construction")}</p>
+			<section>
+				<h2>{t("education.master-title")}</h2>
+				<p>
+					<b>{t("education.master-school")}</b>
+				</p>
+				<p>{t("education.master-description-1")}</p>
+				<p>{t("education.master-description-2")}</p>
+			</section>
+
+			<section>
+				<h2>{t("education.bachelor-title")}</h2>
+				<p>
+					<b>{t("education.bachelor-school")}</b>
+				</p>
+				<p>{t("education.bachelor-description-1")}</p>
+				<p>{t("education.bachelor-description-2")}</p>
+			</section>
 		</main>
 		<Footer />
 	</body>
