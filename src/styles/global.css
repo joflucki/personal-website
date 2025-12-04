@@ -45,7 +45,7 @@
 }
 
 html {
-	background-image: url("../assets/background.webp");
+	background-image: url("../assets/images/background.webp");
 	background-size: cover;
 	background-color: #000000;
 	background-repeat: no-repeat;
@@ -187,5 +187,8 @@ hr {
 @media (max-width: 720px) {
 	main {
 		padding: 3em 1em;
+	}
+	body{
+		font-size: 16px;
 	}
 }

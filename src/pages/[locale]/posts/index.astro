@@ -20,7 +20,7 @@ export const getStaticPaths = (() => {
 const { locale } = Astro.params;
 const posts = (
 	await getCollection("posts", (post) => post.data.locale === locale)
-).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>

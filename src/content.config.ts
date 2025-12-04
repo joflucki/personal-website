@@ -29,11 +29,9 @@ const projects = defineCollection({
 			title: z.string(),
 			description: z.string(),
 			locale: z.enum(LANGUAGE_KEYS),
-			// Transform string to Date object
-			pubDate: z.coerce.date(),
 			heroImage: image().optional(),
 			tags: z.array(z.string()),
-			links: z.array(z.tuple([z.string(), z.string()])).optional() // List of links, e.g. "Github" : "https://github.com/me/myproject"
+			links: z.array(z.string()).optional()
 		}),
 });
 

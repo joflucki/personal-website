@@ -2,8 +2,8 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLocaleFromUrl, useTranslations } from "../i18n/utils";
 import LanguagePicker from "./LanguagePicker.astro";
-import Menu from "../assets/menu.svg";
-import Close from "../assets/close.svg";
+import Menu from "../assets/icons/menu.svg";
+import Close from "../assets/icons/close.svg";
 
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);

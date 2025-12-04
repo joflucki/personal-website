@@ -6,8 +6,11 @@ import Header from "../../components/Header.astro";
 import { SITE_TITLE } from "../../consts";
 import { LANGUAGES } from "../../i18n/ui";
 import { toBCP47, useTranslations } from "../../i18n/utils";
-import profilePicture from "../../assets/91982622-bw.png";
+import profilePicture from "../../assets/images/91982622-bw.png";
 import { Image } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getCollection } from "astro:content";
+import PostCard from "../../components/PostCard.astro";
 
 export const getStaticPaths = (() => {
 	const availablesLocales = Object.keys(LANGUAGES) as [
@@ -20,6 +23,10 @@ export const getStaticPaths = (() => {
 
 const { locale } = Astro.params;
 const t = useTranslations(locale);
+
+const posts = (
+	await getCollection("posts", (post) => post.data.locale === locale)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
@@ -31,53 +38,105 @@ const t = useTranslations(locale);
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				padding: 5em 0;
 			}
-			.hero-section {
+			.hero-section,
+			.recent-posts-section {
+				max-width: 960px;
+			}
+			.hero-main {
 				display: flex;
 				gap: 3em;
-				max-width: 1080px;
-				margin-top: 3em;
-				margin-bottom: 5em;
 				align-items: center;
 			}
-			.hero-section .title {
+			.hero-title {
 				display: flex;
 				height: min-content;
 				flex-direction: column;
 			}
-			.hero-section .title div {
+			.hero-title div {
 				display: flex;
 				gap: 1em;
 				align-items: center;
 			}
-			.hero-section div h1 {
-				font-size: 64pt;
+			h1 {
 				line-height: 1;
 				margin: 0;
 			}
-			.hero-section .title .line {
+			.line {
 				height: 2px;
 				flex-grow: 1;
 				min-width: 3em;
 				background-color: var(--gray-light);
 			}
-			.hero-section .profile-picture img {
+			.profile-picture img {
 				border-radius: 16px;
 				border: 3px solid var(--gray-light);
 				image-rendering: pixelated;
 				image-rendering: crisp-edges;
 			}
-			.hero-section .title p {
+			p {
 				margin: 0;
 			}
-			@media (max-width: 720px){
+			.hero-links-container {
+				width: 100%;
+				display: flex;
+				row-gap: 0.5em;
+				column-gap: 1em;
+				margin-top: 3em;
+			}
+			.hero-links-container a {
+				text-align: center;
+				text-decoration-color: transparent;
+				color: var(--white);
+				border: 1px solid var(--gray-dark);
+				border-radius: 8px;
+				background-color: var(--black);
+				padding: 1em 1em;
+				transition: all 0.15s linear;
+				flex-grow: 1;
+				box-sizing: border-box;
+			}
+			.hero-links-container a:hover {
+				border: 1px solid var(--accent);
+				scale: 101%;
+			}
+
+			.recent-posts-section {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				margin-top: 5em;
+			}
+			.post-container {
+				width: 100%;
+				margin-top: 1em;
+				display: grid;
+				gap: 1em;
+				grid-template-columns: auto auto;
+			}
+			.post-container div:first-child {
+				grid-column: 1 / -1;
+			}
+
+			@media (max-width: 720px) {
 				.hero-section {
 					margin: 0;
+					max-width: 480px;
+				}
+				.hero-main {
 					flex-direction: column;
 					align-items: center;
 				}
-				.hero-section .profile-picture img {
+				.profile-picture img {
 					height: 32em;
+				}
+				.hero-links-container {
+					flex-direction: column;
+				}
+				.hero-links-container a {
+					width: 100%;
 				}
 			}
 		</style>
@@ -86,25 +145,50 @@ const t = useTranslations(locale);
 		<Header />
 		<main>
 			<section class="hero-section">
-				<div class="title">
-					<div><h1>Jonas</h1><div class="line"></div></div>
-					<div><div class="line"></div><h1>Flückiger</h1></div>
-					<div>
-						Security Engineer with strong expertise in zero trust
-						architecture, OT security, applied cryptography, and
-						reverse engineering.
+				<div class="hero-main">
+					<div class="hero-title">
+						<div><h1>Jonas</h1><div class="line"></div></div>
+						<div><div class="line"></div><h1>Flückiger</h1></div>
+						<div>
+							Security Engineer with strong expertise in zero
+							trust architecture, OT security, applied
+							cryptography, and reverse engineering.
+						</div>
+						<div>
+							Currently focusing on securing power grid
+							infrastructure against increasing threats.
+						</div>
 					</div>
-					<div>
-						Currently focusing on securing power grid infrastructure
-						against increasing threats.
+					<div class="profile-picture">
+						<Image
+							src={profilePicture}
+							alt="A pixelated portrait"
+							style="height: 18em; width: auto;"
+						/>
 					</div>
 				</div>
-				<div class="profile-picture">
-					<Image
-						src={profilePicture}
-						alt="A pixelated portrait"
-						style="height: 18em; width: auto;"
-					/>
+				<div class="hero-links-container">
+					<a href={getRelativeLocaleUrl(locale, "/projects")}
+						>Learn more about my projects</a
+					>
+					<a href={getRelativeLocaleUrl(locale, "/education")}
+						>Learn more about my education</a
+					>
+					<a href={getRelativeLocaleUrl(locale, "/volunteering")}
+						>Learn more about my volunteering</a
+					>
+				</div>
+			</section>
+			<section class="recent-posts-section">
+				<h2>Recent posts</h2>
+				<div class="post-container">
+					{
+						posts.slice(0, 3).map((post) => (
+							<div>
+								<PostCard id={post.id} {...post.data} />
+							</div>
+						))
+					}
 				</div>
 			</section>
 		</main>
