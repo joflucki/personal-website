@@ -1,7 +1,7 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLocaleFromUrl } from "../i18n/utils";
-import ChevronDown from "../assets/chevron_down.svg";
+import ChevronDown from "../assets/icons/chevron_down.svg";
 import { LANGUAGES } from "../i18n/ui";
 import { useTranslations } from "../i18n/utils";
 
@@ -93,7 +93,11 @@ const t = useTranslations(currentLocale);
         opacity: 1;
     }
     a {
-        text-decoration: none;
+        text-decoration-color: transparent;
         color: var(--white);
+        transition: text-decoration-color 0.15s linear;
+    }
+    a:hover {
+        text-decoration-color: var(--white);
     }
 </style>

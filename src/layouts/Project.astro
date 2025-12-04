@@ -8,6 +8,7 @@ import Header from "../components/Header.astro";
 import { toBCP47 } from "../i18n/utils";
 import type { MarkdownHeading } from "astro";
 import Tag from "../components/Tag.astro";
+import linkIcon from "../assets/icons/link.svg";
 
 type Props = CollectionEntry<"projects">["data"] & {
 	headings: MarkdownHeading[];
@@ -15,16 +16,8 @@ type Props = CollectionEntry<"projects">["data"] & {
 
 const { _, slug } = Astro.params;
 
-const {
-	title,
-	description,
-	locale,
-	heroImage,
-	pubDate,
-	tags,
-	links,
-	headings,
-} = Astro.props;
+const { title, description, locale, heroImage, tags, links, headings } =
+	Astro.props;
 ---
 
 <html lang={toBCP47(locale)}>
@@ -41,14 +34,14 @@ const {
 			main h1 {
 				margin: 0;
 			}
-			main div:first-child img {
+			.hero-image {
 				aspect-ratio: 32 / 9;
 				width: 100%;
 				object-fit: cover;
 				object-position: center;
 				border-radius: 8px;
 			}
-			main div:last-child {
+			.last {
 				display: flex;
 				gap: 3em;
 			}
@@ -86,11 +79,22 @@ const {
 				display: flex;
 				flex-wrap: wrap;
 				gap: 0.5em;
-				translate: -5px 0;
+				translate: -3px 0;
 			}
 			hr {
 				width: 100%;
 				border: 1px solid var(--gray-dark);
+			}
+			.project-link {
+				display: flex;
+				gap: 6px;
+				align-items: center;
+				color: var(--white);
+			}
+			.project-link img {
+				height: 1em;
+				width: auto;
+				translate: 0 3px;
 			}
 			@media (max-width: 720px) {
 				.table-of-contents {
@@ -108,19 +112,28 @@ const {
 		<Header />
 		<main>
 			<div class="hero-image-container">
-				<img src={heroImage?.src ?? ""} alt="test" />
+				<img
+					class="hero-image"
+					src={heroImage?.src ?? ""}
+					alt="A decorative image for the project"
+				/>
 			</div>
-			<div class="title">
-				<h1>{title}</h1>
-				<div class="date">
-					<FormattedDate date={pubDate} />
-				</div>
+			<h1 class="title">{title}</h1>
+			<div class="project-links-container">
+				{
+					links?.map((link) => (
+						<a class="project-link" href={`https://${link}`}>
+							<Image src={linkIcon} alt="An icon of a link" />{" "}
+							{link}
+						</a>
+					))
+				}
 			</div>
 			<div class="tags">
 				{tags.map((tag) => <Tag {tag} />)}
 			</div>
 			<hr />
-			<div>
+			<div class="last">
 				<div class="table-of-contents">
 					{
 						headings
