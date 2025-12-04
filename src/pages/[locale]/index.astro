@@ -38,7 +38,7 @@ const posts = (
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				padding: 5em 0;
+				padding: 5em 3em;
 			}
 			.hero-section,
 			.recent-posts-section {
@@ -107,7 +107,7 @@ const posts = (
 				display: flex;
 				flex-direction: column;
 				align-items: start;
-				margin-top: 5em;
+				margin: 5em 0;
 			}
 			.post-container {
 				width: 100%;
@@ -121,6 +121,9 @@ const posts = (
 			}
 
 			@media (max-width: 720px) {
+				main {
+					padding: 5em 1em;
+				}
 				.hero-section {
 					margin: 0;
 					max-width: 480px;
@@ -137,6 +140,9 @@ const posts = (
 				}
 				.hero-links-container a {
 					width: 100%;
+				}
+				.post-container {
+					grid-template-columns: auto;
 				}
 			}
 		</style>
