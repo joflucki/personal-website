@@ -121,6 +121,7 @@ export const UI = {
     "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
     "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
 
+    "volunteering.salvation-army-title": "Heilsarmee",
     "volunteering.salvation-army-1": "Ich habe mehrfach als Campbetreuer in verschiedenen Lagern der Heilsarmee freiwillig gearbeitet und Outdoor- sowie Indoor-Aktivitäten für Hunderte von Kindern im Alter von 8 bis 17 Jahren organisiert.",
     "volunteering.salvation-army-2": "Ich habe außerdem am Musikkamp der Heilsarmee teilgenommen, wo ich die Möglichkeit hatte, Theater und Schauspiel zu unterrichten und bei der Erstellung des Musicals des Camps mitzuwirken.",
     "volunteering.rapid-bienne-basket-1": "Im Rahmen meines Engagements bei meinem lokalen Basketballverein habe ich bei vielen Gelegenheiten freiwillig mitgewirkt, sei es als Tischoffizielle der nationalen Liga oder als Mitarbeitender bei Veranstaltungen.",
