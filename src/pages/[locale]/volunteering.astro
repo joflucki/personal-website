@@ -6,6 +6,26 @@ import Header from "../../components/Header.astro";
 import { SITE_TITLE } from "../../consts";
 import { LANGUAGES } from "../../i18n/ui";
 import { toBCP47, useTranslations } from "../../i18n/utils";
+import { Image } from "astro:assets";
+import SAPicture1 from "../../assets/images/volunteering/SA/Grandes-photos_Page_04-1920x1345.jpg";
+import SAPicture2 from "../../assets/images/volunteering/SA/Grandes-photos_Page_05-1920x1339.jpg";
+import SAPicture3 from "../../assets/images/volunteering/SA/Grandes-photos_Page_06-1920x1339.jpg";
+import SAPicture4 from "../../assets/images/volunteering/SA/Grandes-photos_Page_09-1920x1342.jpg";
+
+import RBBPicture1 from "../../assets/images/volunteering/RBB/113-DSCF0795.jpg";
+import RBBPicture2 from "../../assets/images/volunteering/RBB/51-DSC_0019.jpg";
+import RBBPicture3 from "../../assets/images/volunteering/RBB/65-DSCF0630.jpg";
+import RBBPicture4 from "../../assets/images/volunteering/RBB/83-DSCF0748.jpg";
+
+import RBBPicture5 from "../../assets/images/volunteering/RBB/Branding-2.png";
+import RBBPicture6 from "../../assets/images/volunteering/RBB/Branding-1.png";
+import RBBPicture7 from "../../assets/images/volunteering/RBB/Branding-3.png";
+import RBBPicture8 from "../../assets/images/volunteering/RBB/Branding-4.png";
+
+import KTCPicture1 from "../../assets/images/volunteering/KTC/_DSC8896.jpg";
+import KTCPicture2 from "../../assets/images/volunteering/KTC/_DSC9962.jpg";
+import KTCPicture3 from "../../assets/images/volunteering/KTC/DJI_0175.jpg";
+import KTCPicture4 from "../../assets/images/volunteering/KTC/_DSC8200.jpg";
 
 const availablesLocales = Object.keys(LANGUAGES) as [keyof typeof LANGUAGES];
 
@@ -17,6 +37,7 @@ export const getStaticPaths = (() => {
 		params: { locale },
 	}));
 }) satisfies GetStaticPaths;
+
 const { locale } = Astro.params;
 const t = useTranslations(locale);
 ---
@@ -25,12 +46,107 @@ const t = useTranslations(locale);
 <html lang={toBCP47(locale)}>
 	<head>
 		<BaseHead title={SITE_TITLE} />
+		<style>
+			main {
+				max-width: 960px;
+				margin: auto;
+			}
+			section {
+				margin-bottom: 3em;
+			}
+			.picture-container {
+				display: grid;
+				grid-template-columns: auto auto;
+				gap: 0.5em;
+			}
+			.picture-container img {
+				border-radius: 6px;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				aspect-ratio: 16 / 9;
+			}
+			.copyright {
+				color: var(--gray-light);
+			}
+
+			@media (max-width: 720px) {
+				.picture-container {
+					grid-template-columns: auto;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
 			<h1>{t("nav.volunteering")}</h1>
-			<p>{t("global.under-construction")}</p>
+			<section>
+				<h2>{t("volunteering.salvation-army-title")}</h2>
+				<p>{t("volunteering.salvation-army-1")}</p>
+				<div class="picture-container">
+					<Image src={SAPicture1} alt="" />
+					<Image src={SAPicture2} alt="" />
+					<Image src={SAPicture3} alt="" />
+					<Image src={SAPicture4} alt="" />
+				</div>
+				<p class="copyright">
+					&copy; {t("volunteering.salvation-army-title")}
+				</p>
+				<p>{t("volunteering.salvation-army-2")}</p>
+			</section>
+
+			<section>
+				<h2>Rapid Bienne Basket</h2>
+				<p>{t("volunteering.rapid-bienne-basket-1")}</p>
+				<div class="picture-container">
+					<Image
+						src={RBBPicture1}
+						alt=""
+						style="object-position: top;"
+					/>
+					<Image src={RBBPicture2} alt="" />
+					<Image src={RBBPicture3} alt="" />
+					<Image src={RBBPicture4} alt="" style="scale: -1 1" />
+				</div>
+				<p class="copyright">&copy; Rapid Bienne Basket</p>
+				<p>{t("volunteering.rapid-bienne-basket-2")}</p>
+				<div class="picture-container">
+					<Image src={RBBPicture5} alt="" />
+					<Image src={RBBPicture6} alt="" />
+					<Image
+						src={RBBPicture7}
+						alt=""
+						style="object-position: 0 30%;"
+					/>
+					<Image src={RBBPicture8} alt="" />
+				</div>
+				<p class="copyright">&copy; Rapid Bienne Basket</p>
+			</section>
+
+			<section>
+				<h2>Know The Court</h2>
+				<p>{t("volunteering.know-the-court-1")}</p>
+				<div class="picture-container">
+					<Image
+						src={KTCPicture1}
+						alt=""
+						style="object-position: 0 35%"
+					/>
+					<Image src={KTCPicture2} alt="" />
+					<Image
+						src={KTCPicture3}
+						alt=""
+						style="object-position: 0 30%"
+					/>
+					<Image
+						src={KTCPicture4}
+						alt=""
+						style="object-position: 0 20%"
+					/>
+				</div>
+				<p class="copyright">&copy; Know The Court</p>
+			</section>
 		</main>
 		<Footer />
 	</body>

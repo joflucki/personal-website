@@ -32,6 +32,13 @@ export const UI = {
     "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
     "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
 
+    "volunteering.salvation-army-title": "Salvation Army",
+    "volunteering.salvation-army-1": "I volunteered multiple times as a camp counselor in various camps at the Salvation Army, organizing outdoors and indoor activities for hundreds of children aged 8-17.",
+    "volunteering.salvation-army-2": "I also participated in the Salvation Army's music camp, where I had the chance to teach theater and acting, and collaborate on the writing of the camp's musical.",
+    "volunteering.rapid-bienne-basket-1": "As part of my involvement with my local basketball club, I volunteered on many occasions, whether it be as a certified national league table official, or as a staff member for events.",
+    "volunteering.rapid-bienne-basket-2": "Additionally, I worked on improving the club's branding and artistic direction, in order to have a more uniform presence on social media and other communication materials.",
+    "volunteering.know-the-court-1": "Know The Court is an organization that hosts one of the biggest 3x3 basketball tournament in Switzerland. As a core member of the organization, I help the comity and staff with their IT solution, branding, and website.",
+
     "footer.rights": "All rights reserved",
   },
   "fr-ch": {
@@ -59,6 +66,12 @@ export const UI = {
     "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
     "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
 
+    "volunteering.salvation-army-title": "Armée du Salut",
+    "volunteering.salvation-army-1": "J'ai fait du bénévolat à plusieurs reprises en tant que moniteur de camp dans divers camps de l'Armée du Salut, organisant des activités extérieures et intérieures pour des centaines d'enfants âgés de 8 à 17 ans.",
+    "volunteering.salvation-army-2": "J'ai également participé au camp musical de l'Armée du Salut, où j'ai eu l'opportunité d'enseigner le théâtre et le jeu d'acteur, ainsi que de collaborer à la rédaction de la comédie musicale du camp.",
+    "volunteering.rapid-bienne-basket-1": "Dans le cadre de mon engagement auprès de mon club de basket local, j'ai été bénévole à de nombreuses reprises, que ce soit comme officiel de table de ligue nationale ou comme membre du personnel lors d'événements.",
+    "volunteering.rapid-bienne-basket-2": "De plus, j'ai travaillé à l'amélioration du branding et de la direction artistique du club afin d'obtenir une présence plus homogène sur les réseaux sociaux et autres supports de communication.",
+    "volunteering.know-the-court-1": "Know The Court est une organisation qui accueille l'un des plus grands tournois de basket-ball 3x3 en Suisse. En tant que membre central de l'organisation, j'aide le comité et le personnel avec leurs solutions informatiques, le branding et le site web.",
 
     "footer.rights": "Tous droits réservés",
   },
@@ -86,6 +99,14 @@ export const UI = {
     "education.bachelor-school": "Arc School of Engineering",
     "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
     "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
+
+
+    "volunteering.salvation-army-1": "Ich habe mehrfach als Campbetreuer in verschiedenen Lagern der Heilsarmee freiwillig gearbeitet und Outdoor- sowie Indoor-Aktivitäten für Hunderte von Kindern im Alter von 8 bis 17 Jahren organisiert.",
+    "volunteering.salvation-army-2": "Ich habe außerdem am Musikkamp der Heilsarmee teilgenommen, wo ich die Möglichkeit hatte, Theater und Schauspiel zu unterrichten und bei der Erstellung des Musicals des Camps mitzuwirken.",
+    "volunteering.rapid-bienne-basket-1": "Im Rahmen meines Engagements bei meinem lokalen Basketballverein habe ich bei vielen Gelegenheiten freiwillig mitgewirkt, sei es als Tischoffizielle der nationalen Liga oder als Mitarbeitender bei Veranstaltungen.",
+    "volunteering.rapid-bienne-basket-2": "Zusätzlich habe ich an der Verbesserung des Brandings und der künstlerischen Ausrichtung des Vereins gearbeitet, um eine einheitlichere Präsenz in den sozialen Medien und anderen Kommunikationsmaterialien zu erreichen.",
+    "volunteering.know-the-court-1": "Know The Court ist eine Organisation, die eines der größten 3-gegen-3-Basketballturniere in der Schweiz ausrichtet. Als Kernmitglied der Organisation unterstütze ich das Komitee und das Personal bei ihrer IT-Lösung, beim Branding und bei der Website.",
+
 
     "footer.rights": "Alle Rechte vorbehalten",
 
