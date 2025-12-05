@@ -155,15 +155,8 @@ const posts = (
 					<div class="hero-title">
 						<div><h1>Jonas</h1><div class="line"></div></div>
 						<div><div class="line"></div><h1>Flückiger</h1></div>
-						<div>
-							Security Engineer with strong expertise in zero
-							trust architecture, OT security, applied
-							cryptography, and reverse engineering.
-						</div>
-						<div>
-							Currently focusing on securing power grid
-							infrastructure against increasing threats.
-						</div>
+						<div>{t("landing.overview")}</div>
+						<div>{t("landing.current-focus")}</div>
 					</div>
 					<div class="profile-picture">
 						<Image
@@ -174,19 +167,19 @@ const posts = (
 					</div>
 				</div>
 				<div class="hero-links-container">
-					<a href={getRelativeLocaleUrl(locale, "/projects")}
-						>Learn more about my projects</a
-					>
-					<a href={getRelativeLocaleUrl(locale, "/education")}
-						>Learn more about my education</a
-					>
-					<a href={getRelativeLocaleUrl(locale, "/volunteering")}
-						>Learn more about my volunteering</a
-					>
+					<a href={getRelativeLocaleUrl(locale, "/projects")}>
+						{t("landing.link-projects")}
+					</a>
+					<a href={getRelativeLocaleUrl(locale, "/education")}>
+						{t("landing.link-education")}
+					</a>
+					<a href={getRelativeLocaleUrl(locale, "/volunteering")}>
+						{t("landing.link-volunteering")}
+					</a>
 				</div>
 			</section>
 			<section class="recent-posts-section">
-				<h2>Recent posts</h2>
+				<h2>{t("landing.recent-posts")}</h2>
 				<div class="post-container">
 					{
 						posts.slice(0, 3).map((post) => (
