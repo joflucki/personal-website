@@ -23,6 +23,13 @@ export const UI = {
     "global.published-on": "Published on",
     "global.written-by": "Written by",
 
+    "landing.overview": "Security Engineer with strong expertise in zero trust architecture, OT security, applied cryptography, and reverse engineering.",
+    "landing.current-focus": "Currently focusing on securing power grid infrastructure against increasing threats.",
+    "landing.link-projects": "Learn more about my projects",
+    "landing.link-education": "Learn more about my education",
+    "landing.link-volunteering": "Learn more about my volunteering",
+    "landing.recent-posts": "Recent posts",
+
     "education.master-title": "Master of Science in Engineering - Computer Science",
     "education.master-school": "University of Applied Sciences and Arts of Western Switzerland",
     "education.master-description-1": "Specializing in cybersecurity, I mainly studied applied cryptography, reverse engineering, ethical hacking, and network security.",
@@ -56,6 +63,13 @@ export const UI = {
     "global.last-updated-on": "Dernière mise à jour le",
     "global.published-on": "Publié le",
     "global.written-by": "Rédigé par",
+
+    "landing.overview": "Ingénieur sécurité avec une solide expertise en architecture zero-trust, sécurité OT, cryptographie appliquée et rétro-ingénierie.",
+    "landing.current-focus": "Je me concentre actuellement sur la sécurisation des infrastructures du réseau électrique face aux menaces croissantes.",
+    "landing.link-projects": "En savoir plus sur mes projets",
+    "landing.link-education": "En savoir plus sur ma formation",
+    "landing.link-volunteering": "En savoir plus sur mon bénévolat",
+    "landing.recent-posts": "Posts récents",
 
     "education.master-title": "Master of Science in Engineering - Computer Science",
     "education.master-school": "Haute École Spécialisée de Suisse Occidentale (HES-SO)",
@@ -91,6 +105,13 @@ export const UI = {
     "global.published-on": "Veröffentlicht am",
     "global.written-by": "Verfasst von",
 
+    "landing.overview": "Security Engineer mit fundierter Expertise in Zero-Trust-Architektur, OT-Sicherheit, angewandter Kryptografie und Reverse Engineering.",
+    "landing.current-focus": "Derzeit liegt mein Fokus auf der Sicherung der Stromnetz-Infrastruktur gegen zunehmende Bedrohungen.",
+    "landing.link-projects": "Mehr über meine Projekte erfahren",
+    "landing.link-education": "Mehr über meine Ausbildung erfahren",
+    "landing.link-volunteering": "Mehr über mein ehrenamtliches Engagement erfahren",
+    "landing.recent-posts": "Neueste Posts",
+
     "education.master-title": "Master of Science in Engineering - Computer Science",
     "education.master-school": "University of Applied Sciences and Arts of Western Switzerland",
     "education.master-description-1": "Specializing in cybersecurity, I mainly studied applied cryptography, reverse engineering, ethical hacking, and network security.",
@@ -100,15 +121,12 @@ export const UI = {
     "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
     "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
 
-
     "volunteering.salvation-army-1": "Ich habe mehrfach als Campbetreuer in verschiedenen Lagern der Heilsarmee freiwillig gearbeitet und Outdoor- sowie Indoor-Aktivitäten für Hunderte von Kindern im Alter von 8 bis 17 Jahren organisiert.",
     "volunteering.salvation-army-2": "Ich habe außerdem am Musikkamp der Heilsarmee teilgenommen, wo ich die Möglichkeit hatte, Theater und Schauspiel zu unterrichten und bei der Erstellung des Musicals des Camps mitzuwirken.",
     "volunteering.rapid-bienne-basket-1": "Im Rahmen meines Engagements bei meinem lokalen Basketballverein habe ich bei vielen Gelegenheiten freiwillig mitgewirkt, sei es als Tischoffizielle der nationalen Liga oder als Mitarbeitender bei Veranstaltungen.",
     "volunteering.rapid-bienne-basket-2": "Zusätzlich habe ich an der Verbesserung des Brandings und der künstlerischen Ausrichtung des Vereins gearbeitet, um eine einheitlichere Präsenz in den sozialen Medien und anderen Kommunikationsmaterialien zu erreichen.",
     "volunteering.know-the-court-1": "Know The Court ist eine Organisation, die eines der größten 3-gegen-3-Basketballturniere in der Schweiz ausrichtet. Als Kernmitglied der Organisation unterstütze ich das Komitee und das Personal bei ihrer IT-Lösung, beim Branding und bei der Website.",
 
-
     "footer.rights": "Alle Rechte vorbehalten",
-
   }
 } as const;
