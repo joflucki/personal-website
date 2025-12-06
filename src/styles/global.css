@@ -46,9 +46,9 @@
 
 html {
 	background-image: url("../assets/images/background.webp");
-	background-size: cover;
+	background-size: contain;
 	background-color: #000000;
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 }
 
 .no-scroll {
@@ -188,7 +188,8 @@ hr {
 	main {
 		padding: 3em 1em;
 	}
-	body{
+
+	body {
 		font-size: 16px;
 	}
 }

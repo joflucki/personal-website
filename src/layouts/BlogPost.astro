@@ -34,23 +34,27 @@ const t = useTranslations(locale);
 				gap: 1em;
 			}
 			.table-of-contents {
+				flex: 1;
 				height: min-content;
 				display: flex;
 				flex-direction: column;
-				align-items: end;
-				text-align: end;
+				align-items: start;
+				text-align: start;
 				border-right: 1px solid var(--accent);
 				padding-right: 1em;
 				position: sticky;
-				top: 5em;
+				top: 3.8em;
 				min-width: 20%;
 				line-height: 1.2;
-				gap: 0.75em;
+				gap: 0.4em;
 			}
 			.table-of-contents a {
 				color: var(--white);
 				text-decoration-color: transparent;
 				transition: text-decoration-color 0.15s linear;
+			}
+			.table-of-contents hr {
+				margin: 0;
 			}
 			.table-of-contents a:hover {
 				text-decoration-color: var(--white);
@@ -60,7 +64,8 @@ const t = useTranslations(locale);
 				gap: 1em;
 			}
 			.prose {
-				width: 100%;
+				flex: 4;
+				min-width: 0; /* IMPORTANT */
 			}
 			.tags {
 				display: flex;
@@ -135,8 +140,13 @@ const t = useTranslations(locale);
 					{
 						headings
 							.filter((heading) => heading.depth < 3)
-							.map((heading) => (
-								<a href={`#${heading.slug}`}>{heading.text}</a>
+							.flatMap((heading, i, _) => (
+								<>
+									{i > 0 && <hr />}
+									<a href={`#${heading.slug}`}>
+										{heading.text}
+									</a>
+								</>
 							))
 					}
 				</div>
