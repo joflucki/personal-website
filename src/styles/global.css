@@ -193,3 +193,15 @@ hr {
 		font-size: 16px;
 	}
 }
+
+@keyframes text-appear {
+	0% {
+		translate: 0 10%;
+		opacity: 0;
+	}
+
+	100% {
+		translate: 0 0;
+		opacity: 1;
+	}
+}
