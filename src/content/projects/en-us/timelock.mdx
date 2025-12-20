@@ -23,7 +23,7 @@ in which one of the main projects was to build a secure, file-sharing applicatio
 The application had to respect a strict set of cryptographic specifications, and had to be modeled and implemented in the language of our choice.
 Additionaly, a set of challenges (Forward/Backward secrecy, Post-quantum safety) were proposed for bonus points.
 
-A more complete documentation of the cryptographic model can be found [here](/public/documents/timelock.pdf).
+A more complete documentation of the cryptographic model can be found [here](/documents/timelock.pdf).
 
 ## Specifications
 
@@ -86,7 +86,7 @@ The server then stores the encrypted message and the encrypted key separately. I
 in advance, they are allowed to do so. Without access to the decryption key, the recipient isn't able to decrypt the message.
 The recipient can then ask for the decryption key, which will be granted only if the unlock time has passed.
 
-For the curious: A more detailled version of the documentation can be found [here](/public/documents/timelock.pdf).
+For the curious: A more detailled version of the documentation can be found [here](/documents/timelock.pdf).
 The entire cryptographic model is laid out for each operation.
 
 ## Implementation
