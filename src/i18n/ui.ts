@@ -38,6 +38,7 @@ export const UI = {
     "education.bachelor-school": "Arc School of Engineering",
     "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
     "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
+    "education.city-of-lausanne": "City of Lausanne",
 
     "volunteering.salvation-army-title": "Salvation Army",
     "volunteering.salvation-army-1": "I volunteered multiple times as a camp counselor in various camps at the Salvation Army, organizing outdoors and indoor activities for hundreds of children aged 8-17.",
@@ -79,6 +80,7 @@ export const UI = {
     "education.bachelor-school": "Haute École Arc (HE-Arc)",
     "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
     "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
+    "education.city-of-lausanne": "Ville de Lausanne",
 
     "volunteering.salvation-army-title": "Armée du Salut",
     "volunteering.salvation-army-1": "J'ai fait du bénévolat à plusieurs reprises en tant que moniteur de camp dans divers camps de l'Armée du Salut, organisant des activités extérieures et intérieures pour des centaines d'enfants âgés de 8 à 17 ans.",
@@ -120,6 +122,7 @@ export const UI = {
     "education.bachelor-school": "Arc School of Engineering",
     "education.bachelor-description-1": "With a focus on software engineering, I studied clean software architecture, design patterns, high performance computing, functional programming, and learned about many languages and frameworks.",
     "education.bachelor-description-2": "My thesis was carried out in collaboration with a research group at the University of Geneva, whose worked focused on explainable sparse models. In this context, I developed massively parallel software for efficient training of their models in an easily extensible architecture for future performance improvements.",
+    "education.city-of-lausanne": "Stadt Lausanne",
 
     "volunteering.salvation-army-title": "Heilsarmee",
     "volunteering.salvation-army-1": "Ich habe mehrfach als Campbetreuer in verschiedenen Lagern der Heilsarmee freiwillig gearbeitet und Outdoor- sowie Indoor-Aktivitäten für Hunderte von Kindern im Alter von 8 bis 17 Jahren organisiert.",
