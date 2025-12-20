@@ -31,8 +31,44 @@ const { title, description, locale, heroImage, tags, links, headings } =
 				width: 70%;
 				gap: 1em;
 			}
-			main h1 {
+			.table-of-contents {
+				flex: 1;
+				height: min-content;
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				text-align: start;
+				border-right: 1px solid var(--accent);
+				padding-right: 1em;
+				position: sticky;
+				top: 3.8em;
+				min-width: 20%;
+				line-height: 1.2;
+				gap: 0.4em;
+			}
+			.table-of-contents a {
+				color: var(--white);
+				text-decoration-color: transparent;
+				transition: text-decoration-color 0.15s linear;
+			}
+			.table-of-contents hr {
 				margin: 0;
+			}
+			.table-of-contents a:hover {
+				text-decoration-color: var(--white);
+			}
+			.content {
+				display: flex;
+				gap: 1em;
+			}
+			.prose {
+				flex: 4;
+				min-width: 0; /* IMPORTANT */
+			}
+			.prose img {
+				display: block;
+				width: 100%;
+				height: auto;
 			}
 			.hero-image {
 				aspect-ratio: 32 / 9;
@@ -40,40 +76,6 @@ const { title, description, locale, heroImage, tags, links, headings } =
 				object-fit: cover;
 				object-position: center;
 				border-radius: 8px;
-			}
-			.last {
-				display: flex;
-				gap: 3em;
-			}
-			.table-of-contents {
-				height: min-content;
-				display: flex;
-				flex-direction: column;
-				align-items: end;
-				text-align: end;
-				border-right: 1px solid var(--accent);
-				padding-right: 1em;
-				position: sticky;
-				top: 5em;
-				min-width: 20%;
-				line-height: 1.2;
-				gap: 0.75em;
-			}
-			.table-of-contents a {
-				color: var(--white);
-				text-decoration-color: transparent;
-				transition: text-decoration-color 0.15s linear;
-			}
-			.table-of-contents a:hover {
-				text-decoration-color: var(--white);
-			}
-			.content {
-				display: flex;
-				flex-direction: column;
-			}
-			.prose {
-				display: flex;
-				flex-direction: column;
 			}
 			.tags {
 				display: flex;
@@ -133,20 +135,23 @@ const { title, description, locale, heroImage, tags, links, headings } =
 				{tags.map((tag) => <Tag {tag} />)}
 			</div>
 			<hr />
-			<div class="last">
+			<div class="content">
 				<div class="table-of-contents">
 					{
 						headings
 							.filter((heading) => heading.depth < 3)
-							.map((heading) => (
-								<a href={`#${heading.slug}`}>{heading.text}</a>
+							.flatMap((heading, i, _) => (
+								<>
+									{i > 0 && <hr />}
+									<a href={`#${heading.slug}`}>
+										{heading.text}
+									</a>
+								</>
 							))
 					}
 				</div>
-				<div class="content">
-					<div class="prose">
-						<slot />
-					</div>
+				<div class="prose">
+					<slot />
 				</div>
 			</div>
 		</main>
