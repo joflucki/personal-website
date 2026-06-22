@@ -7,10 +7,6 @@ import { SITE_TITLE } from "../../consts";
 import { LANGUAGES } from "../../i18n/ui";
 import { toBCP47, useTranslations } from "../../i18n/utils";
 import { Image } from "astro:assets";
-import HEARC1 from "../../assets/images/education/e24da13_1656954766143-344659230-highres.jpg";
-import HEARC2 from "../../assets/images/education/UNINE_neuchatel_cafiso_00001image.jpg";
-import HESSO1 from "../../assets/images/education/vue-palais-rumine-cathedrale-5479.2022-03-08-09-09-41.jpg";
-import HESSO2 from "../../assets/images/education/thomas-despeyroux-Dh5pUa2PwrY-unsplash.jpg";
 
 export const getStaticPaths = (() => {
 	const availablesLocales = Object.keys(LANGUAGES) as [
@@ -71,13 +67,6 @@ const t = useTranslations(locale);
 				</p>
 				<p>{t("education.master-description-1")}</p>
 				<p>{t("education.master-description-2")}</p>
-				<div class="picture-container">
-					<Image src={HESSO1} alt="" />
-					<Image src={HESSO2} alt="" />
-				</div>
-				<p class="copyright">
-					&copy; {t("education.city-of-lausanne")} / Thomas Despeyroux
-				</p>
 			</section>
 
 			<section>
@@ -87,13 +76,6 @@ const t = useTranslations(locale);
 				</p>
 				<p>{t("education.bachelor-description-1")}</p>
 				<p>{t("education.bachelor-description-2")}</p>
-				<div class="picture-container">
-					<Image src={HEARC1} alt="" />
-					<Image src={HEARC2} alt="" />
-				</div>
-				<p class="copyright">
-					&copy; Valentin Flauraud / UniNE
-				</p>
 			</section>
 		</main>
 		<Footer />
