@@ -46,7 +46,7 @@
 
 html {
 	background-image: url("../assets/images/background.webp");
-	background-size: contain;
+	background-size: fill;
 	background-color: #000000;
 	background-repeat: repeat-y;
 }
